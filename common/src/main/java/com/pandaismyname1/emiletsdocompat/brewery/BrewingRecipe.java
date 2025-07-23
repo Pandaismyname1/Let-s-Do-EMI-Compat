@@ -1,6 +1,5 @@
 package com.pandaismyname1.emiletsdocompat.brewery;
 
-import com.pandaismyname1.emiletsdocompat.utils.DisplayUtils;
 import dev.architectury.utils.EnvExecutor;
 import dev.architectury.utils.GameInstance;
 import dev.emi.emi.api.recipe.BasicEmiRecipe;
@@ -14,10 +13,10 @@ import net.minecraft.resources.ResourceLocation;
 import java.util.function.Supplier;
 
 public class BrewingRecipe extends BasicEmiRecipe {
+    public static final ResourceLocation TEXTURE = new ResourceLocation("brewery", "textures/gui/brewingstation.png");
     protected static final Supplier<RegistryAccess> REGISTRY_ACCESS =
             EnvExecutor.getEnvSpecific(() -> () -> () -> GameInstance.getClient().player.level().registryAccess(),
                     () -> () -> () -> GameInstance.getServer().registryAccess());
-    public static final ResourceLocation TEXTURE = new ResourceLocation("brewery", "textures/gui/brewingstation.png");
 
     public BrewingRecipe(EmiRecipeCategory category, net.satisfy.brewery.recipe.BrewingRecipe recipe) {
         super(category, recipe.getId(), 70, 18);

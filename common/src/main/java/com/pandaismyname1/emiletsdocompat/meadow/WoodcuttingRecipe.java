@@ -1,6 +1,5 @@
 package com.pandaismyname1.emiletsdocompat.meadow;
 
-import com.pandaismyname1.emiletsdocompat.utils.DisplayUtils;
 import dev.architectury.utils.EnvExecutor;
 import dev.architectury.utils.GameInstance;
 import dev.emi.emi.api.recipe.BasicEmiRecipe;
@@ -17,7 +16,7 @@ public class WoodcuttingRecipe extends BasicEmiRecipe {
             EnvExecutor.getEnvSpecific(() -> () -> () -> GameInstance.getClient().player.level().registryAccess(),
                     () -> () -> () -> GameInstance.getServer().registryAccess());
 
-    public WoodcuttingRecipe(EmiRecipeCategory category, net.satisfy.meadow.recipes.WoodcuttingRecipe recipe) {
+    public WoodcuttingRecipe(EmiRecipeCategory category, net.satisfy.meadow.core.recipes.WoodcuttingRecipe recipe) {
         super(category, recipe.getId(), 70, 18);
         var ingredients = recipe.getIngredients();
         for (var ingredient : ingredients) {

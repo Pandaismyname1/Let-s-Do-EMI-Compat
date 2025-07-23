@@ -34,18 +34,19 @@ dependencies {
     shadowCommon(project(path: ":common", configuration: "transformProductionFabric")) { transitive false }
     modImplementation "curse.maven:lets-do-vinery-704465:5992485"
     modImplementation "curse.maven:lets-do-bakery-886559:5528401"
-    modImplementation "curse.maven:lets-do-meadow-821483:5504104"
+    modImplementation "curse.maven:lets-do-meadow-821483:6467345"
     modImplementation "curse.maven:lets-do-nethervinery-930072:5987943"
     modImplementation "curse.maven:lets-do-candlelight-846962:5427654"
     modImplementation "curse.maven:lets-do-brewery-971636:5427505"
     modImplementation "curse.maven:lets-do-herbal-brews-951221:5400096"
     modImplementation "curse.maven:lets-do-beachparty-858691:5320667"
-    modImplementation "curse.maven:lets-do-farm-charm-1038103:5824226"
-    modImplementation "curse.maven:lets-do-bakery-farm-charm-compat-1038130:5824485"
-    modImplementation "curse.maven:lets-do-candlelight-farm-charm-compat-1038117:5652319"
-    modImplementation "curse.maven:lets-do-brewery-farm-charm-compat-1038106:5652316"
+    modImplementation "curse.maven:lets-do-farm-charm-1038103:6561949"
+    modImplementation "curse.maven:lets-do-bakery-farm-charm-compat-1038130:6508307"
+    modImplementation "curse.maven:lets-do-candlelight-farm-charm-compat-1038117:6195387"
+    modImplementation "curse.maven:lets-do-brewery-farm-charm-compat-1038106:6195390"
     modImplementation "curse.maven:lets-do-furniture-1062363:5988123"
     modImplementation "curse.maven:lets-do-camping-1072398:5823924"
+    modImplementation "curse.maven:emi-580555:6420944"
 }
 
 processResources {

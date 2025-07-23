@@ -1,6 +1,5 @@
 package com.pandaismyname1.emiletsdocompat.candlelight;
 
-import com.pandaismyname1.emiletsdocompat.utils.DisplayUtils;
 import dev.architectury.utils.EnvExecutor;
 import dev.architectury.utils.GameInstance;
 import dev.emi.emi.api.recipe.BasicEmiRecipe;
@@ -15,10 +14,10 @@ import net.minecraft.world.item.ItemStack;
 import java.util.function.Supplier;
 
 public class PanCookingRecipe extends BasicEmiRecipe {
+    public static final ResourceLocation TEXTURE = new ResourceLocation("candlelight", "textures/gui/pan_gui.png");
     protected static final Supplier<RegistryAccess> REGISTRY_ACCESS =
             EnvExecutor.getEnvSpecific(() -> () -> () -> GameInstance.getClient().player.level().registryAccess(),
                     () -> () -> () -> GameInstance.getServer().registryAccess());
-    public static final ResourceLocation TEXTURE = new ResourceLocation("candlelight", "textures/gui/pan_gui.png");
     protected final ItemStack CONTAINER_ITEM;
 
     public PanCookingRecipe(EmiRecipeCategory category, net.satisfy.candlelight.recipe.CookingPanRecipe recipe) {
@@ -30,12 +29,12 @@ public class PanCookingRecipe extends BasicEmiRecipe {
         }
         this.outputs.add(EmiStack.of(recipe.getResultItem(REGISTRY_ACCESS.get())));
     }
+
     @Override
     public void addWidgets(WidgetHolder widgets) {
-        widgets.addTexture(TEXTURE, 0,0,  124, 60, 26, 12);
-        widgets.addAnimatedTexture(TEXTURE, 67,3, 19, 29, 176, 16, 5000, true, false, false);
+        widgets.addTexture(TEXTURE, 0, 0, 124, 60, 26, 12);
+        widgets.addAnimatedTexture(TEXTURE, 67, 3, 19, 29, 176, 16, 5000, true, false, false);
         widgets.addAnimatedTexture(TEXTURE, 98, 44, 16, 14, 176, 0, 5000, false, true, false);
-
 
 
         if (!this.inputs.isEmpty()) {
@@ -44,27 +43,27 @@ public class PanCookingRecipe extends BasicEmiRecipe {
         }
 
         if (this.inputs.size() > 1) {
-            var s= widgets.addSlot(this.inputs.get(1), 21, 4);
+            var s = widgets.addSlot(this.inputs.get(1), 21, 4);
             s.drawBack(false);
         }
 
         if (this.inputs.size() > 2) {
-            var s= widgets.addSlot(this.inputs.get(2), 39, 4);
+            var s = widgets.addSlot(this.inputs.get(2), 39, 4);
             s.drawBack(false);
         }
 
         if (this.inputs.size() > 3) {
-            var s= widgets.addSlot(this.inputs.get(3), 3, 22);
+            var s = widgets.addSlot(this.inputs.get(3), 3, 22);
             s.drawBack(false);
         }
 
         if (this.inputs.size() > 4) {
-            var s= widgets.addSlot(this.inputs.get(4), 21, 22);
+            var s = widgets.addSlot(this.inputs.get(4), 21, 22);
             s.drawBack(false);
         }
 
         if (this.inputs.size() > 5) {
-            var s= widgets.addSlot(this.inputs.get(5), 39, 22);
+            var s = widgets.addSlot(this.inputs.get(5), 39, 22);
             s.drawBack(false);
         }
 

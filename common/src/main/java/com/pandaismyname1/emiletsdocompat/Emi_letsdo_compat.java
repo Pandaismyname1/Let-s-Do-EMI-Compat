@@ -8,6 +8,7 @@ import net.minecraft.world.item.crafting.RecipeManager;
 @EmiEntrypoint
 public class Emi_letsdo_compat implements EmiPlugin {
     public static final String MOD_ID = "emi_letsdo_compat";
+
     @Override
     public void register(EmiRegistry registry) {
         RecipeManager manager = registry.getRecipeManager();

@@ -1,6 +1,5 @@
 package com.pandaismyname1.emiletsdocompat.farm_and_charm;
 
-import com.pandaismyname1.emiletsdocompat.utils.DisplayUtils;
 import dev.architectury.utils.EnvExecutor;
 import dev.architectury.utils.GameInstance;
 import dev.emi.emi.api.recipe.BasicEmiRecipe;
@@ -14,13 +13,13 @@ import net.minecraft.resources.ResourceLocation;
 import java.util.function.Supplier;
 
 public class StoveRecipe extends BasicEmiRecipe {
+    public static final ResourceLocation TEXTURE = new ResourceLocation("farm_and_charm", "textures/gui/stove_gui.png");
     protected static final Supplier<RegistryAccess> REGISTRY_ACCESS =
             EnvExecutor.getEnvSpecific(() -> () -> () -> GameInstance.getClient().player.level().registryAccess(),
                     () -> () -> () -> GameInstance.getServer().registryAccess());
-    public static final ResourceLocation TEXTURE = new ResourceLocation("farm_and_charm", "textures/gui/stove_gui.png");
 
 
-    public StoveRecipe(EmiRecipeCategory category,net.satisfy.farm_and_charm.recipe.StoveRecipe recipe) {
+    public StoveRecipe(EmiRecipeCategory category, net.satisfy.farm_and_charm.core.recipe.StoveRecipe recipe) {
         super(category, recipe.getId(), 70, 18);
         var ingredients = recipe.getIngredients();
         for (var ingredient : ingredients) {
@@ -31,10 +30,9 @@ public class StoveRecipe extends BasicEmiRecipe {
 
     @Override
     public void addWidgets(WidgetHolder widgets) {
-        widgets.addTexture(TEXTURE, 0,0,  124, 60, 25, 13);
-        widgets.addAnimatedTexture(TEXTURE, 66,15, 19, 29, 176, 16, 5000, true, false, false);
+        widgets.addTexture(TEXTURE, 0, 0, 124, 60, 25, 13);
+        widgets.addAnimatedTexture(TEXTURE, 66, 15, 19, 29, 176, 16, 5000, true, false, false);
         widgets.addAnimatedTexture(TEXTURE, 37, 36, 17, 14, 176, 0, 5000, false, true, false);
-
 
 
         if (!this.inputs.isEmpty()) {
@@ -43,27 +41,27 @@ public class StoveRecipe extends BasicEmiRecipe {
         }
 
         if (this.inputs.size() > 1) {
-            var s= widgets.addSlot(this.inputs.get(1), 21, 4);
+            var s = widgets.addSlot(this.inputs.get(1), 21, 4);
             s.drawBack(false);
         }
 
         if (this.inputs.size() > 2) {
-            var s= widgets.addSlot(this.inputs.get(2), 39, 4);
+            var s = widgets.addSlot(this.inputs.get(2), 39, 4);
             s.drawBack(false);
         }
 
         if (this.inputs.size() > 3) {
-            var s= widgets.addSlot(this.inputs.get(3), 3, 22);
+            var s = widgets.addSlot(this.inputs.get(3), 3, 22);
             s.drawBack(false);
         }
 
         if (this.inputs.size() > 4) {
-            var s= widgets.addSlot(this.inputs.get(4), 21, 22);
+            var s = widgets.addSlot(this.inputs.get(4), 21, 22);
             s.drawBack(false);
         }
 
         if (this.inputs.size() > 5) {
-            var s= widgets.addSlot(this.inputs.get(5), 39, 22);
+            var s = widgets.addSlot(this.inputs.get(5), 39, 22);
             s.drawBack(false);
         }
 

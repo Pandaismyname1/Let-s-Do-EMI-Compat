@@ -1,6 +1,5 @@
 package com.pandaismyname1.emiletsdocompat.vinery;
 
-import com.pandaismyname1.emiletsdocompat.utils.DisplayUtils;
 import dev.architectury.utils.EnvExecutor;
 import dev.architectury.utils.GameInstance;
 import dev.emi.emi.api.recipe.BasicEmiRecipe;
@@ -18,10 +17,10 @@ import java.util.ArrayList;
 import java.util.function.Supplier;
 
 public class FermentationRecipe extends BasicEmiRecipe {
+    public static final ResourceLocation TEXTURE = new ResourceLocation("vinery", "textures/gui/fermentation_barrel_gui.png");
     protected static final Supplier<RegistryAccess> REGISTRY_ACCESS =
             EnvExecutor.getEnvSpecific(() -> () -> () -> GameInstance.getClient().player.level().registryAccess(),
                     () -> () -> () -> GameInstance.getServer().registryAccess());
-    public static final ResourceLocation TEXTURE = new ResourceLocation("vinery", "textures/gui/fermentation_barrel_gui.png");
     private final String juiceType;
     private final int fluidLevel;
     private final boolean requiresBottle;
@@ -40,7 +39,7 @@ public class FermentationRecipe extends BasicEmiRecipe {
 
     private Component getFluidTooltip(String juiceType, int fluidLevel) {
         int maxFluidLevel = PlatformHelper.getMaxFluidLevel();
-        double percentage = (double)fluidLevel / (double)maxFluidLevel * (double)100.0F;
+        double percentage = (double) fluidLevel / (double) maxFluidLevel * (double) 100.0F;
         String percentageStr = String.format("%.2f", percentage);
         if (juiceType.startsWith("red")) {
             String region = juiceType.substring(4);
@@ -55,9 +54,9 @@ public class FermentationRecipe extends BasicEmiRecipe {
 
     @Override
     public void addWidgets(WidgetHolder widgets) {
-        widgets.addTexture(TEXTURE, 0,0,  124, 72, 26, 6);
-        widgets.addAnimatedTexture(TEXTURE, 96,14,  10, 28, 176, 0, 20000, false, true, false);
-        widgets.addAnimatedTexture(TEXTURE, 56, 38,  20, 4, 176, 37, 30000, true, false, true);
+        widgets.addTexture(TEXTURE, 0, 0, 124, 72, 26, 6);
+        widgets.addAnimatedTexture(TEXTURE, 96, 14, 10, 28, 176, 0, 20000, false, true, false);
+        widgets.addAnimatedTexture(TEXTURE, 56, 38, 20, 4, 176, 37, 30000, true, false, true);
 
         var ttList = new ArrayList<Component>();
         ttList.add(getFluidTooltip(juiceType, fluidLevel));

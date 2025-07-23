@@ -13,8 +13,7 @@ public interface IEmiModCompat {
     void init(EmiRegistry registry, RecipeManager manager) throws NoSuchFieldException;
 
 
-
-    default <T extends EmiRecipe> void registerRecipeType(EmiRegistry registry, RecipeManager manager, EmiRecipeCategory category, Consumer<Object> onRecipe, RecipeType recipeType, EmiStack...blocks) throws NoSuchFieldException, NoSuchFieldError, ClassNotFoundException {
+    default <T extends EmiRecipe> void registerRecipeType(EmiRegistry registry, RecipeManager manager, EmiRecipeCategory category, Consumer<Object> onRecipe, RecipeType recipeType, EmiStack... blocks) throws NoSuchFieldException, NoSuchFieldError, ClassNotFoundException {
         registry.addCategory(category);
         for (EmiStack block : blocks) {
             registry.addWorkstation(category, block);

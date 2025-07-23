@@ -7,7 +7,7 @@ import dev.emi.emi.api.stack.EmiStack;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.crafting.RecipeManager;
 import net.satisfy.farm_and_charm.FarmAndCharm;
-import net.satisfy.farm_and_charm.registry.ObjectRegistry;
+import net.satisfy.farm_and_charm.core.registry.ObjectRegistry;
 
 public class FarmAndCharmCompat implements IEmiModCompat {
     @Override
@@ -18,8 +18,10 @@ public class FarmAndCharmCompat implements IEmiModCompat {
                     EmiStack.of(ObjectRegistry.COOKING_POT.get()));
             registerRecipeType(registry, manager,
                     recipeCategory,
-                    (recipe) -> {registry.addRecipe(new PotCookingRecipe(recipeCategory, (net.satisfy.farm_and_charm.recipe.CookingPotRecipe) recipe));},
-                    net.satisfy.farm_and_charm.registry.RecipeTypeRegistry.COOKING_POT_RECIPE_TYPE.get(),
+                    (recipe) -> {
+                        registry.addRecipe(new PotCookingRecipe(recipeCategory, (net.satisfy.farm_and_charm.core.recipe.CookingPotRecipe) recipe));
+                    },
+                    net.satisfy.farm_and_charm.core.registry.RecipeTypeRegistry.COOKING_POT_RECIPE_TYPE.get(),
                     EmiStack.of(ObjectRegistry.COOKING_POT.get()));
         } catch (NoSuchFieldError | NoSuchFieldException | ClassNotFoundException e) {
         }
@@ -29,8 +31,10 @@ public class FarmAndCharmCompat implements IEmiModCompat {
                     EmiStack.of(ObjectRegistry.CRAFTING_BOWL.get()));
             registerRecipeType(registry, manager,
                     recipeCategory,
-                    (recipe) -> {registry.addRecipe(new CraftingBowlRecipe(recipeCategory, (net.satisfy.farm_and_charm.recipe.CraftingBowlRecipe) recipe));},
-                    net.satisfy.farm_and_charm.registry.RecipeTypeRegistry.CRAFTING_BOWL_RECIPE_TYPE.get(),
+                    (recipe) -> {
+                        registry.addRecipe(new CraftingBowlRecipe(recipeCategory, (net.satisfy.farm_and_charm.core.recipe.CraftingBowlRecipe) recipe));
+                    },
+                    net.satisfy.farm_and_charm.core.registry.RecipeTypeRegistry.CRAFTING_BOWL_RECIPE_TYPE.get(),
                     EmiStack.of(ObjectRegistry.CRAFTING_BOWL.get()));
         } catch (NoSuchFieldError | NoSuchFieldException | ClassNotFoundException e) {
         }
@@ -40,8 +44,10 @@ public class FarmAndCharmCompat implements IEmiModCompat {
                     EmiStack.of(ObjectRegistry.MINCER.get()));
             registerRecipeType(registry, manager,
                     recipeCategory,
-                    (recipe) -> {registry.addRecipe(new MincerRecipe(recipeCategory, (net.satisfy.farm_and_charm.recipe.MincerRecipe) recipe));},
-                    net.satisfy.farm_and_charm.registry.RecipeTypeRegistry.MINCER_RECIPE_TYPE.get(),
+                    (recipe) -> {
+                        registry.addRecipe(new MincerRecipe(recipeCategory, (net.satisfy.farm_and_charm.core.recipe.MincerRecipe) recipe));
+                    },
+                    net.satisfy.farm_and_charm.core.registry.RecipeTypeRegistry.MINCER_RECIPE_TYPE.get(),
                     EmiStack.of(ObjectRegistry.MINCER.get()));
         } catch (NoSuchFieldError | NoSuchFieldException | ClassNotFoundException e) {
         }
@@ -51,8 +57,10 @@ public class FarmAndCharmCompat implements IEmiModCompat {
                     EmiStack.of(ObjectRegistry.ROASTER.get()));
             registerRecipeType(registry, manager,
                     recipeCategory,
-                    (recipe) -> {registry.addRecipe(new RoasterRecipe(recipeCategory, (net.satisfy.farm_and_charm.recipe.RoasterRecipe) recipe));},
-                    net.satisfy.farm_and_charm.registry.RecipeTypeRegistry.ROASTER_RECIPE_TYPE.get(),
+                    (recipe) -> {
+                        registry.addRecipe(new RoasterRecipe(recipeCategory, (net.satisfy.farm_and_charm.core.recipe.RoasterRecipe) recipe));
+                    },
+                    net.satisfy.farm_and_charm.core.registry.RecipeTypeRegistry.ROASTER_RECIPE_TYPE.get(),
                     EmiStack.of(ObjectRegistry.ROASTER.get()));
         } catch (NoSuchFieldError | NoSuchFieldException | ClassNotFoundException e) {
         }
@@ -62,8 +70,10 @@ public class FarmAndCharmCompat implements IEmiModCompat {
                     EmiStack.of(ObjectRegistry.SILO_WOOD.get()));
             registerRecipeType(registry, manager,
                     recipeCategory,
-                    (recipe) -> {registry.addRecipe(new SiloRecipe(recipeCategory, (net.satisfy.farm_and_charm.recipe.SiloRecipe) recipe));},
-                    net.satisfy.farm_and_charm.registry.RecipeTypeRegistry.SILO_RECIPE_TYPE.get(),
+                    (recipe) -> {
+                        registry.addRecipe(new SiloRecipe(recipeCategory, (net.satisfy.farm_and_charm.core.recipe.SiloRecipe) recipe));
+                    },
+                    net.satisfy.farm_and_charm.core.registry.RecipeTypeRegistry.SILO_RECIPE_TYPE.get(),
                     EmiStack.of(ObjectRegistry.SILO_WOOD.get()),
                     EmiStack.of(ObjectRegistry.SILO_COPPER.get()));
         } catch (NoSuchFieldError | NoSuchFieldException | ClassNotFoundException e) {
@@ -74,8 +84,10 @@ public class FarmAndCharmCompat implements IEmiModCompat {
                     EmiStack.of(ObjectRegistry.STOVE.get()));
             registerRecipeType(registry, manager,
                     recipeCategory,
-                    (recipe) -> {registry.addRecipe(new StoveRecipe(recipeCategory, (net.satisfy.farm_and_charm.recipe.StoveRecipe) recipe));},
-                    net.satisfy.farm_and_charm.registry.RecipeTypeRegistry.STOVE_RECIPE_TYPE.get(),
+                    (recipe) -> {
+                        registry.addRecipe(new StoveRecipe(recipeCategory, (net.satisfy.farm_and_charm.core.recipe.StoveRecipe) recipe));
+                    },
+                    net.satisfy.farm_and_charm.core.registry.RecipeTypeRegistry.STOVE_RECIPE_TYPE.get(),
                     EmiStack.of(ObjectRegistry.STOVE.get()));
         } catch (NoSuchFieldError | NoSuchFieldException | ClassNotFoundException e) {
         }

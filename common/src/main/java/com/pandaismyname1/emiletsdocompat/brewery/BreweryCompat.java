@@ -17,7 +17,9 @@ public class BreweryCompat implements IEmiModCompat {
                     EmiStack.of(net.satisfy.brewery.registry.ObjectRegistry.WOODEN_BREWINGSTATION.get()));
             registerRecipeType(registry, manager,
                     recipeCategory,
-                    (recipe) -> {registry.addRecipe(new BrewingRecipe(recipeCategory, (net.satisfy.brewery.recipe.BrewingRecipe) recipe));},
+                    (recipe) -> {
+                        registry.addRecipe(new BrewingRecipe(recipeCategory, (net.satisfy.brewery.recipe.BrewingRecipe) recipe));
+                    },
                     net.satisfy.brewery.registry.RecipeTypeRegistry.BREWING_RECIPE_TYPE.get(),
                     EmiStack.of(net.satisfy.brewery.registry.ObjectRegistry.WOODEN_BREWINGSTATION.get()),
                     EmiStack.of(net.satisfy.brewery.registry.ObjectRegistry.COPPER_BREWINGSTATION.get()),
@@ -31,7 +33,9 @@ public class BreweryCompat implements IEmiModCompat {
                     EmiStack.of(net.satisfy.brewery.registry.ObjectRegistry.SILO_WOOD.get()));
             registerRecipeType(registry, manager,
                     recipeCategory,
-                    (recipe) -> {registry.addRecipe(new DryingRecipe(recipeCategory, (net.satisfy.brewery.recipe.SiloRecipe) recipe));},
+                    (recipe) -> {
+                        registry.addRecipe(new DryingRecipe(recipeCategory, (net.satisfy.brewery.recipe.SiloRecipe) recipe));
+                    },
                     net.satisfy.brewery.registry.RecipeTypeRegistry.SILO_RECIPE_TYPE.get(),
                     EmiStack.of(net.satisfy.brewery.registry.ObjectRegistry.SILO_WOOD.get()),
                     EmiStack.of(net.satisfy.brewery.registry.ObjectRegistry.SILO_COPPER.get()));

@@ -1,6 +1,5 @@
 package com.pandaismyname1.emiletsdocompat.beachparty;
 
-import com.pandaismyname1.emiletsdocompat.utils.DisplayUtils;
 import dev.architectury.utils.EnvExecutor;
 import dev.architectury.utils.GameInstance;
 import dev.emi.emi.api.recipe.BasicEmiRecipe;
@@ -10,7 +9,6 @@ import dev.emi.emi.api.stack.EmiStack;
 import dev.emi.emi.api.widget.WidgetHolder;
 import net.minecraft.core.RegistryAccess;
 import satisfy.beachparty.client.gui.MiniFridgeGui;
-import satisfy.beachparty.client.gui.TikiBarGui;
 
 import java.util.function.Supplier;
 
@@ -30,8 +28,8 @@ public class MiniFridgeMixingRecipe extends BasicEmiRecipe {
 
     @Override
     public void addWidgets(WidgetHolder widgets) {
-        widgets.addTexture(MiniFridgeGui.BG, -1, -1,  124, 60, 26, 13);
-        widgets.addAnimatedTexture(MiniFridgeGui.BG, 67, 31,22,10, 177, 26, 5000, true, false, false);
+        widgets.addTexture(MiniFridgeGui.BG, -1, -1, 124, 60, 26, 13);
+        widgets.addAnimatedTexture(MiniFridgeGui.BG, 67, 31, 22, 10, 177, 26, 5000, true, false, false);
 
         if (!this.inputs.isEmpty()) {
             var s = widgets.addSlot(this.inputs.get(0), 18, 12);
@@ -39,7 +37,7 @@ public class MiniFridgeMixingRecipe extends BasicEmiRecipe {
         }
 
         if (this.inputs.size() > 1) {
-            var s= widgets.addSlot(this.inputs.get(1), 31, 28);
+            var s = widgets.addSlot(this.inputs.get(1), 31, 28);
             s.drawBack(false);
         }
 

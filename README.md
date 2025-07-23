@@ -24,3 +24,6 @@ The mod brings all kinds of recipes into EMI from the following mods:
 - [Let's Do] Meadow
 - [Let's Do] Vinery
 - [Let's Do] Nether Vinery
+- [Let's Do] Farm & Charm & Compat Versions of the mods listed above
+- [Let's Do] Camping
+- [Let's Do] Furniture

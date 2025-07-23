@@ -17,7 +17,9 @@ public class BakeryCompat implements IEmiModCompat {
                     EmiStack.of(ObjectRegistry.BAKER_STATION.get()));
             registerRecipeType(registry, manager,
                     recipeCategory,
-                    (recipe) -> {registry.addRecipe(new BakingStationRecipe(recipeCategory, (net.satisfy.bakery.recipe.BakingStationRecipe) recipe));},
+                    (recipe) -> {
+                        registry.addRecipe(new BakingStationRecipe(recipeCategory, (net.satisfy.bakery.recipe.BakingStationRecipe) recipe));
+                    },
                     net.satisfy.bakery.registry.RecipeTypeRegistry.BAKING_STATION_RECIPE_TYPE.get(),
                     EmiStack.of(ObjectRegistry.BAKER_STATION.get()));
         } catch (NoSuchFieldError | NoSuchFieldException | ClassNotFoundException e) {
@@ -28,7 +30,9 @@ public class BakeryCompat implements IEmiModCompat {
                     EmiStack.of(ObjectRegistry.CRAFTING_BOWL.get()));
             registerRecipeType(registry, manager,
                     recipeCategory,
-                    (recipe) -> {registry.addRecipe(new CraftingBowlRecipe(recipeCategory, (net.satisfy.bakery.recipe.CraftingBowlRecipe) recipe));},
+                    (recipe) -> {
+                        registry.addRecipe(new CraftingBowlRecipe(recipeCategory, (net.satisfy.bakery.recipe.CraftingBowlRecipe) recipe));
+                    },
                     net.satisfy.bakery.registry.RecipeTypeRegistry.CRAFTING_BOWL_RECIPE_TYPE.get(),
                     EmiStack.of(ObjectRegistry.CRAFTING_BOWL.get()));
         } catch (NoSuchFieldError | NoSuchFieldException | ClassNotFoundException e) {
@@ -39,7 +43,9 @@ public class BakeryCompat implements IEmiModCompat {
                     EmiStack.of(ObjectRegistry.BRICK_STOVE.get()));
             registerRecipeType(registry, manager,
                     recipeCategory,
-                    (recipe) -> {registry.addRecipe(new StoveRecipe(recipeCategory, (net.satisfy.bakery.recipe.StoveRecipe) recipe));},
+                    (recipe) -> {
+                        registry.addRecipe(new StoveRecipe(recipeCategory, (net.satisfy.bakery.recipe.StoveRecipe) recipe));
+                    },
                     net.satisfy.bakery.registry.RecipeTypeRegistry.STOVE_RECIPE_TYPE.get(),
                     EmiStack.of(ObjectRegistry.BRICK_STOVE.get()),
                     EmiStack.of(ObjectRegistry.COBBLESTONE_STOVE.get()),
@@ -59,7 +65,9 @@ public class BakeryCompat implements IEmiModCompat {
                     EmiStack.of(ObjectRegistry.SMALL_COOKING_POT.get()));
             registerRecipeType(registry, manager,
                     recipeCategory,
-                    (recipe) -> {registry.addRecipe(new PotCookingRecipe(recipeCategory, (net.satisfy.bakery.recipe.CookingPotRecipe) recipe));},
+                    (recipe) -> {
+                        registry.addRecipe(new PotCookingRecipe(recipeCategory, (net.satisfy.bakery.recipe.CookingPotRecipe) recipe));
+                    },
                     net.satisfy.bakery.registry.RecipeTypeRegistry.COOKING_POT_RECIPE_TYPE.get(),
                     EmiStack.of(ObjectRegistry.SMALL_COOKING_POT.get()));
         } catch (NoSuchFieldError | NoSuchFieldException | ClassNotFoundException e) {

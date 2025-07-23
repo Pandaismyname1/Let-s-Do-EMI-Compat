@@ -20,7 +20,9 @@ public class BeachpartyCompat implements IEmiModCompat {
                     EmiStack.of(ObjectRegistry.MINI_FRIDGE.get()));
             registerRecipeType(registry, manager,
                     recipeCategory,
-                    (recipe) -> {registry.addRecipe(new MiniFridgeMixingRecipe(recipeCategory, (satisfy.beachparty.recipe.MiniFridgeRecipe) recipe));},
+                    (recipe) -> {
+                        registry.addRecipe(new MiniFridgeMixingRecipe(recipeCategory, (satisfy.beachparty.recipe.MiniFridgeRecipe) recipe));
+                    },
                     RecipeRegistry.MINI_FRIDGE_RECIPE_TYPE.get(),
                     EmiStack.of(ObjectRegistry.MINI_FRIDGE.get()));
         } catch (NoSuchFieldError | NoSuchFieldException | ClassNotFoundException e) {
@@ -31,7 +33,9 @@ public class BeachpartyCompat implements IEmiModCompat {
                     EmiStack.of(ObjectRegistry.TIKI_BAR.get()));
             registerRecipeType(registry, manager,
                     recipeCategory,
-                    (recipe) -> {registry.addRecipe(new TikiBarMixingRecipe(recipeCategory, (satisfy.beachparty.recipe.TikiBarRecipe) recipe));},
+                    (recipe) -> {
+                        registry.addRecipe(new TikiBarMixingRecipe(recipeCategory, (satisfy.beachparty.recipe.TikiBarRecipe) recipe));
+                    },
                     RecipeRegistry.TIKI_BAR_RECIPE_TYPE.get(),
                     EmiStack.of(ObjectRegistry.TIKI_BAR.get()));
         } catch (NoSuchFieldError | NoSuchFieldException | ClassNotFoundException e) {

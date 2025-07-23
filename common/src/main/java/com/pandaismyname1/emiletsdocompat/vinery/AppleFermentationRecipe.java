@@ -1,6 +1,5 @@
 package com.pandaismyname1.emiletsdocompat.vinery;
 
-import com.pandaismyname1.emiletsdocompat.utils.DisplayUtils;
 import dev.architectury.utils.EnvExecutor;
 import dev.architectury.utils.GameInstance;
 import dev.emi.emi.api.recipe.BasicEmiRecipe;
@@ -15,10 +14,10 @@ import net.minecraft.world.item.crafting.Ingredient;
 import java.util.function.Supplier;
 
 public class AppleFermentationRecipe extends BasicEmiRecipe {
+    public static final ResourceLocation TEXTURE = new ResourceLocation("vinery", "textures/gui/apple_press_gui.png");
     protected static final Supplier<RegistryAccess> REGISTRY_ACCESS =
             EnvExecutor.getEnvSpecific(() -> () -> () -> GameInstance.getClient().player.level().registryAccess(),
                     () -> () -> () -> GameInstance.getServer().registryAccess());
-    public static final ResourceLocation TEXTURE = new ResourceLocation("vinery", "textures/gui/apple_press_gui.png");
 
     public AppleFermentationRecipe(EmiRecipeCategory category, net.satisfy.vinery.core.recipe.ApplePressFermentingRecipe recipe) {
         super(category, recipe.getId(), 70, 18);
@@ -36,11 +35,10 @@ public class AppleFermentationRecipe extends BasicEmiRecipe {
 
     @Override
     public void addWidgets(WidgetHolder widgets) {
-        widgets.addTexture(TEXTURE, 15,20,  36, 18, 100, 49);
-        widgets.addTexture(TEXTURE, 66,15,  10, 28, 101, 17);
-        widgets.addAnimatedTexture(TEXTURE, 66,15,  10, 28, 176, 47, 10000, false, true, false);
-        widgets.addTexture(TEXTURE, 89,20,  18, 18, 118, 17);
-
+        widgets.addTexture(TEXTURE, 15, 20, 36, 18, 100, 49);
+        widgets.addTexture(TEXTURE, 66, 15, 10, 28, 101, 17);
+        widgets.addAnimatedTexture(TEXTURE, 66, 15, 10, 28, 176, 47, 10000, false, true, false);
+        widgets.addTexture(TEXTURE, 89, 20, 18, 18, 118, 17);
 
 
         if (!this.inputs.isEmpty()) {

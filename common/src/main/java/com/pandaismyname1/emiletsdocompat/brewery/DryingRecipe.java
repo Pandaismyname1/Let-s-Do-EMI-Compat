@@ -1,6 +1,5 @@
 package com.pandaismyname1.emiletsdocompat.brewery;
 
-import com.pandaismyname1.emiletsdocompat.utils.DisplayUtils;
 import dev.architectury.utils.EnvExecutor;
 import dev.architectury.utils.GameInstance;
 import dev.emi.emi.api.recipe.BasicEmiRecipe;
@@ -15,10 +14,10 @@ import net.satisfy.brewery.recipe.SiloRecipe;
 import java.util.function.Supplier;
 
 public class DryingRecipe extends BasicEmiRecipe {
+    public static final ResourceLocation TEXTURE = new ResourceLocation("brewery", "textures/gui/silo.png");
     protected static final Supplier<RegistryAccess> REGISTRY_ACCESS =
             EnvExecutor.getEnvSpecific(() -> () -> () -> GameInstance.getClient().player.level().registryAccess(),
                     () -> () -> () -> GameInstance.getServer().registryAccess());
-    public static final ResourceLocation TEXTURE = new ResourceLocation("brewery", "textures/gui/silo.png");
 
     public DryingRecipe(EmiRecipeCategory category, SiloRecipe recipe) {
         super(category, recipe.getId(), 70, 18);

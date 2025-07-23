@@ -17,7 +17,9 @@ public class CandlelightCompat implements IEmiModCompat {
                     EmiStack.of(ObjectRegistry.COOKING_PAN.get()));
             registerRecipeType(registry, manager,
                     recipeCategory,
-                    (recipe) -> {registry.addRecipe(new PanCookingRecipe(recipeCategory, (net.satisfy.candlelight.recipe.CookingPanRecipe) recipe));},
+                    (recipe) -> {
+                        registry.addRecipe(new PanCookingRecipe(recipeCategory, (net.satisfy.candlelight.recipe.CookingPanRecipe) recipe));
+                    },
                     net.satisfy.candlelight.registry.RecipeTypeRegistry.COOKING_PAN_RECIPE_TYPE.get(),
                     EmiStack.of(ObjectRegistry.COOKING_PAN.get()));
         } catch (NoSuchFieldError | NoSuchFieldException | ClassNotFoundException e) {
@@ -28,7 +30,9 @@ public class CandlelightCompat implements IEmiModCompat {
                     EmiStack.of(ObjectRegistry.COOKING_POT.get()));
             registerRecipeType(registry, manager,
                     recipeCategory,
-                    (recipe) -> {registry.addRecipe(new PotCookingRecipe(recipeCategory, (net.satisfy.candlelight.recipe.CookingPotRecipe) recipe));},
+                    (recipe) -> {
+                        registry.addRecipe(new PotCookingRecipe(recipeCategory, (net.satisfy.candlelight.recipe.CookingPotRecipe) recipe));
+                    },
                     net.satisfy.candlelight.registry.RecipeTypeRegistry.COOKING_POT_RECIPE_TYPE.get(),
                     EmiStack.of(ObjectRegistry.COOKING_POT.get()));
         } catch (NoSuchFieldError | NoSuchFieldException | ClassNotFoundException e) {

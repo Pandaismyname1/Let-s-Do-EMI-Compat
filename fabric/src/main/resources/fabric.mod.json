@@ -2,15 +2,12 @@
   "schemaVersion": 1,
   "id": "emi_letsdo_compat",
   "version": "${version}",
-
   "name": "emi-letsdo-compat",
   "description": "",
   "authors": [],
   "contact": {},
-
   "license": "MIT",
   "icon": "icon.png",
-
   "environment": "*",
   "entrypoints": {
     "main": [

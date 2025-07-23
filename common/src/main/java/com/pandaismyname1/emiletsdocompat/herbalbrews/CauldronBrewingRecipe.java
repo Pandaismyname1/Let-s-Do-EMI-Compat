@@ -1,6 +1,5 @@
 package com.pandaismyname1.emiletsdocompat.herbalbrews;
 
-import com.pandaismyname1.emiletsdocompat.utils.DisplayUtils;
 import dev.architectury.utils.EnvExecutor;
 import dev.architectury.utils.GameInstance;
 import dev.emi.emi.api.recipe.BasicEmiRecipe;
@@ -16,10 +15,10 @@ import net.minecraft.world.item.crafting.Ingredient;
 import java.util.function.Supplier;
 
 public class CauldronBrewingRecipe extends BasicEmiRecipe {
+    public static final ResourceLocation TEXTURE = new ResourceLocation("herbalbrews", "textures/gui/cauldron.png");
     protected static final Supplier<RegistryAccess> REGISTRY_ACCESS =
             EnvExecutor.getEnvSpecific(() -> () -> () -> GameInstance.getClient().player.level().registryAccess(),
                     () -> () -> () -> GameInstance.getServer().registryAccess());
-    public static final ResourceLocation TEXTURE = new ResourceLocation("herbalbrews", "textures/gui/cauldron.png");
 
     public CauldronBrewingRecipe(EmiRecipeCategory category, satisfy.herbalbrews.recipe.CauldronRecipe recipe) {
         super(category, recipe.getId(), 70, 18);
@@ -32,7 +31,7 @@ public class CauldronBrewingRecipe extends BasicEmiRecipe {
 
     @Override
     public void addWidgets(WidgetHolder widgets) {
-        widgets.addTexture(TEXTURE, 0,0,  124, 60, 26, 12);
+        widgets.addTexture(TEXTURE, 0, 0, 124, 60, 26, 12);
         widgets.addFillingArrow(67, 20, 5000);
 
 
@@ -42,17 +41,17 @@ public class CauldronBrewingRecipe extends BasicEmiRecipe {
         }
 
         if (this.inputs.size() > 1) {
-            var s= widgets.addSlot(this.inputs.get(1), 24, 13);
+            var s = widgets.addSlot(this.inputs.get(1), 24, 13);
             s.drawBack(false);
         }
 
         if (this.inputs.size() > 2) {
-            var s= widgets.addSlot(this.inputs.get(2), 6, 31);
+            var s = widgets.addSlot(this.inputs.get(2), 6, 31);
             s.drawBack(false);
         }
 
         if (this.inputs.size() > 3) {
-            var s= widgets.addSlot(this.inputs.get(3), 24, 31);
+            var s = widgets.addSlot(this.inputs.get(3), 24, 31);
             s.drawBack(false);
         }
 

@@ -1,6 +1,5 @@
 package com.pandaismyname1.emiletsdocompat.farm_and_charm;
 
-import com.pandaismyname1.emiletsdocompat.utils.DisplayUtils;
 import dev.architectury.utils.EnvExecutor;
 import dev.architectury.utils.GameInstance;
 import dev.emi.emi.api.recipe.BasicEmiRecipe;
@@ -14,12 +13,12 @@ import net.minecraft.resources.ResourceLocation;
 import java.util.function.Supplier;
 
 public class CraftingBowlRecipe extends BasicEmiRecipe {
+    public static final ResourceLocation TEXTURE = new ResourceLocation("farm_and_charm", "textures/gui/crafting_bowl.png");
     protected static final Supplier<RegistryAccess> REGISTRY_ACCESS =
             EnvExecutor.getEnvSpecific(() -> () -> () -> GameInstance.getClient().player.level().registryAccess(),
                     () -> () -> () -> GameInstance.getServer().registryAccess());
-    public static final ResourceLocation TEXTURE = new ResourceLocation("farm_and_charm", "textures/gui/crafting_bowl.png");
 
-    public CraftingBowlRecipe(EmiRecipeCategory category, net.satisfy.farm_and_charm.recipe.CraftingBowlRecipe recipe) {
+    public CraftingBowlRecipe(EmiRecipeCategory category, net.satisfy.farm_and_charm.core.recipe.CraftingBowlRecipe recipe) {
         super(category, recipe.getId(), 70, 18);
         var ingredients = recipe.getIngredients();
         for (var ingredient : ingredients) {
@@ -30,7 +29,7 @@ public class CraftingBowlRecipe extends BasicEmiRecipe {
 
     @Override
     public void addWidgets(WidgetHolder widgets) {
-        widgets.addTexture(TEXTURE, 0,0,  124, 60, 16, 12);
+        widgets.addTexture(TEXTURE, 0, 0, 124, 60, 16, 12);
         widgets.addFillingArrow(62, 24, 5000);
 
 
@@ -40,17 +39,17 @@ public class CraftingBowlRecipe extends BasicEmiRecipe {
         }
 
         if (this.inputs.size() > 1) {
-            var s= widgets.addSlot(this.inputs.get(1), 33, 12);
+            var s = widgets.addSlot(this.inputs.get(1), 33, 12);
             s.drawBack(false);
         }
 
         if (this.inputs.size() > 2) {
-            var s= widgets.addSlot(this.inputs.get(2), 13, 30);
+            var s = widgets.addSlot(this.inputs.get(2), 13, 30);
             s.drawBack(false);
         }
 
         if (this.inputs.size() > 3) {
-            var s= widgets.addSlot(this.inputs.get(3), 33, 30);
+            var s = widgets.addSlot(this.inputs.get(3), 33, 30);
             s.drawBack(false);
         }
 

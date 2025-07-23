@@ -1,6 +1,5 @@
 package com.pandaismyname1.emiletsdocompat.vinery;
 
-import com.pandaismyname1.emiletsdocompat.utils.DisplayUtils;
 import dev.architectury.utils.EnvExecutor;
 import dev.architectury.utils.GameInstance;
 import dev.emi.emi.api.recipe.BasicEmiRecipe;
@@ -14,10 +13,10 @@ import net.minecraft.resources.ResourceLocation;
 import java.util.function.Supplier;
 
 public class ApplePressingRecipe extends BasicEmiRecipe {
+    public static final ResourceLocation TEXTURE = new ResourceLocation("vinery", "textures/gui/apple_press_gui.png");
     protected static final Supplier<RegistryAccess> REGISTRY_ACCESS =
             EnvExecutor.getEnvSpecific(() -> () -> () -> GameInstance.getClient().player.level().registryAccess(),
                     () -> () -> () -> GameInstance.getServer().registryAccess());
-    public static final ResourceLocation TEXTURE = new ResourceLocation("vinery", "textures/gui/apple_press_gui.png");
 
     public ApplePressingRecipe(EmiRecipeCategory category, net.satisfy.vinery.core.recipe.ApplePressMashingRecipe recipe) {
         super(category, recipe.getId(), 70, 18);
@@ -30,11 +29,10 @@ public class ApplePressingRecipe extends BasicEmiRecipe {
 
     @Override
     public void addWidgets(WidgetHolder widgets) {
-        widgets.addTexture(TEXTURE, 13,3,  28, 54, 38, 15);
-        widgets.addAnimatedTexture(TEXTURE, 15,5, 25, 38, 176, 0, 5000, false, false, false);
+        widgets.addTexture(TEXTURE, 13, 3, 28, 54, 38, 15);
+        widgets.addAnimatedTexture(TEXTURE, 15, 5, 25, 38, 176, 0, 5000, false, false, false);
         widgets.addFillingArrow(48, 25, 5000);
-        widgets.addTexture(TEXTURE, 80,25,  36, 18, 100, 49);
-
+        widgets.addTexture(TEXTURE, 80, 25, 36, 18, 100, 49);
 
 
         if (!this.inputs.isEmpty()) {

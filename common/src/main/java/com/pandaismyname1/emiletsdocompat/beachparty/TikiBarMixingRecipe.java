@@ -1,6 +1,5 @@
 package com.pandaismyname1.emiletsdocompat.beachparty;
 
-import com.pandaismyname1.emiletsdocompat.utils.DisplayUtils;
 import dev.architectury.utils.EnvExecutor;
 import dev.architectury.utils.GameInstance;
 import dev.emi.emi.api.recipe.BasicEmiRecipe;
@@ -29,9 +28,9 @@ public class TikiBarMixingRecipe extends BasicEmiRecipe {
 
     @Override
     public void addWidgets(WidgetHolder widgets) {
-        widgets.addTexture(TikiBarGui.BG, -1, -1,  124, 60, 26, 13);
-        widgets.addAnimatedTexture(TikiBarGui.BG, 67, 31,22,10, 177, 26, 5000, true, false, false);
-        widgets.addAnimatedTexture(TikiBarGui.BG, 69, 8,15,20, 179, 2, 5000, false, true, false);
+        widgets.addTexture(TikiBarGui.BG, -1, -1, 124, 60, 26, 13);
+        widgets.addAnimatedTexture(TikiBarGui.BG, 67, 31, 22, 10, 177, 26, 5000, true, false, false);
+        widgets.addAnimatedTexture(TikiBarGui.BG, 69, 8, 15, 20, 179, 2, 5000, false, true, false);
 
         if (!this.inputs.isEmpty()) {
             var s = widgets.addSlot(this.inputs.get(0), 27, 11);
@@ -39,7 +38,7 @@ public class TikiBarMixingRecipe extends BasicEmiRecipe {
         }
 
         if (this.inputs.size() > 1) {
-            var s= widgets.addSlot(this.inputs.get(1), 27, 29);
+            var s = widgets.addSlot(this.inputs.get(1), 27, 29);
             s.drawBack(false);
         }
 
