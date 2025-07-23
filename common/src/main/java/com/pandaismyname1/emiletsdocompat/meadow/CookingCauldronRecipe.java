@@ -29,9 +29,9 @@ public class CookingCauldronRecipe extends BasicEmiRecipe {
 
     @Override
     public void addWidgets(WidgetHolder widgets) {
-        widgets.addTexture(TEXTURE, 0, 0, 124, 60, 26, 6);
-        widgets.addAnimatedTexture(TEXTURE, 64, 4, 19, 29, 176, 16, 5000, true, false, false);
-        widgets.addAnimatedTexture(TEXTURE, 98, 44, 16, 14, 176, 0, 5000, false, true, false);
+        widgets.addTexture(TEXTURE, 0, 0, 124, 60, 7, 6);
+        widgets.addAnimatedTexture(TEXTURE, 64, 20, 24, 17, 176, 14, 5000, true, false, false);
+        widgets.addAnimatedTexture(TEXTURE, 102, 47, 16, 14, 176, 0, 5000, false, true, false);
 
 
         if (!this.inputs.isEmpty()) {
