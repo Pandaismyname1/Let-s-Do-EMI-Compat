@@ -37,7 +37,7 @@ jobs:
       - name: Build
         run: ./gradlew clean build
 
-      - name: Publish (CurseForge/Modrinth/GitHub)
+      - name: Publish Fabric (CurseForge/Modrinth/GitHub)
         uses: Kir-Antipov/mc-publish@v3.3
         with:
           curseforge-id: 1063821
@@ -46,16 +46,37 @@ jobs:
           modrinth-id: k6hi4lMv
           modrinth-token: "${{env.MODRINTH_TOKEN}}"
 
-          github-tag: "v${{env.VERSION}}+${{env.MINECRAFT_VERSION}}"
+          github-tag: "v${{env.VERSION}}+${{env.MINECRAFT_VERSION}}+fabric"
           github-token: "${{env.GITHUB_TOKEN}}"
 
-          name: "[Let's Do Addon] EMI Compat ${{ env.VERSION }} for Minecraft ${{ env.MINECRAFT_VERSION }}"
-          version: "${{env.VERSION}}+${{env.MINECRAFT_VERSION}}"
+          name: "[Let's Do Addon] EMI Compat ${{ env.VERSION }} for Minecraft ${{ env.MINECRAFT_VERSION }} Fabric"
+          files-primary: fabric/build/libs/emi-letsdo-compat-*.jar
+          version: "${{env.VERSION}}+${{env.MINECRAFT_VERSION}}+fabric"
           version-type: release
           changelog-file: CHANGELOG.md
 
-          loaders: |
-            fabric
-            forge
+          loaders: fabric
+          game-versions: "${{env.MINECRAFT_VERSION}}"
+          java: "${{env.JAVA_VERSION}}"
+
+      - name: Publish Forge (CurseForge/Modrinth/GitHub)
+        uses: Kir-Antipov/mc-publish@v3.3
+        with:
+          curseforge-id: 1063821
+          curseforge-token: "${{env.CURSEFORGE_TOKEN}}"
+
+          modrinth-id: k6hi4lMv
+          modrinth-token: "${{env.MODRINTH_TOKEN}}"
+
+          github-tag: "v${{env.VERSION}}+${{env.MINECRAFT_VERSION}}+forge"
+          github-token: "${{env.GITHUB_TOKEN}}"
+
+          name: "[Let's Do Addon] EMI Compat ${{ env.VERSION }} for Minecraft ${{ env.MINECRAFT_VERSION }} Forge"
+          files-primary: forge/build/libs/emi-letsdo-compat-*.jar
+          version: "${{env.VERSION}}+${{env.MINECRAFT_VERSION}}+forge"
+          version-type: release
+          changelog-file: CHANGELOG.md
+
+          loaders: forge
           game-versions: "${{env.MINECRAFT_VERSION}}"
           java: "${{env.JAVA_VERSION}}"
