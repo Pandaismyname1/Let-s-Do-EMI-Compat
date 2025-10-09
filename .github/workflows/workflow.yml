@@ -50,7 +50,7 @@ jobs:
           github-token: "${{env.GITHUB_TOKEN}}"
 
           name: "[Let's Do Addon] EMI Compat ${{ env.VERSION }} for Minecraft ${{ env.MINECRAFT_VERSION }} Fabric"
-          files-primary: fabric/build/libs/emi-letsdo-compat-*.jar
+          files-primary: "fabric/build/libs/emi-letsdo-compat-${{env.VERSION}}.jar"
           version: "${{env.VERSION}}+${{env.MINECRAFT_VERSION}}+fabric"
           version-type: release
           changelog-file: CHANGELOG.md
@@ -72,7 +72,7 @@ jobs:
           github-token: "${{env.GITHUB_TOKEN}}"
 
           name: "[Let's Do Addon] EMI Compat ${{ env.VERSION }} for Minecraft ${{ env.MINECRAFT_VERSION }} Forge"
-          files-primary: forge/build/libs/emi-letsdo-compat-*.jar
+          files-primary: "forge/build/libs/emi-letsdo-compat-${{env.VERSION}}.jar"
           version: "${{env.VERSION}}+${{env.MINECRAFT_VERSION}}+forge"
           version-type: release
           changelog-file: CHANGELOG.md
