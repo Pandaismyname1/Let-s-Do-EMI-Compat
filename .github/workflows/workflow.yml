@@ -5,7 +5,7 @@ env:
   MINECRAFT_VERSION: 1.20.1
   JAVA_VERSION: 17
   VERSION: 1.8
-  RELEASE_NAME: [Let's Do Addon] EMI Compat ${{ VERSION }} for Minecraft ${{ MINECRAFT_VERSION }}
+  RELEASE_NAME: [Let's Do Addon] EMI Compat ${{ env.VERSION }} for Minecraft ${{ env.MINECRAFT_VERSION }}
   MODRINTH_TOKEN: ${{ secrets.PUBLISH_MODRINTH_TOKEN }}
   CURSEFORGE_TOKEN: ${{ secrets.PUBLISH_CURSEFORGE_TOKEN }}
   GITHUB_TOKEN: ${{ secrets.PUBLISH_GITHUB_TOKEN }}
@@ -29,7 +29,7 @@ jobs:
         uses: actions/setup-java@v2
         with:
           distribution: "temurin"
-          java-version: ${{JAVA_VERSION}}
+          java-version: ${{env.JAVA_VERSION}}
 
       - name: Make Gradle Wrapper Executable
         if: ${{ runner.os != 'Windows' }}
@@ -47,7 +47,7 @@ jobs:
           modrinth-id: k6hi4lMv
           modrinth-token: "${{env.MODRINTH_TOKEN}}"
 
-          github-tag: "v${{env.VERSION}}"
+          github-tag: "v${{env.VERSION}}+${{env.MINECRAFT_VERSION}}"
           github-token: "${{env.GITHUB_TOKEN}}"
 
           name: "${{env.RELEASE_NAME}}"
