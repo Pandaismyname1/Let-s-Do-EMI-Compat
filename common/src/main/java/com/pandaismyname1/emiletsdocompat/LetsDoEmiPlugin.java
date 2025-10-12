@@ -46,6 +46,14 @@ public class LetsDoEmiPlugin implements EmiPlugin {
         }
 
         try {
+            Class.forName("net.satisfy.brewery.Brewery");
+            Class.forName("net.satisfy.brewery.core.recipe.BrewingRecipe");
+            new com.pandaismyname1.emiletsdocompat.brewery_fc.BreweryFCCompat().init(registry, manager);
+        } catch (ClassNotFoundException | NoSuchFieldException | NoSuchFieldError e) {
+            // Brewery not found
+        }
+
+        try {
             Class.forName("net.satisfy.candlelight.Candlelight");
             Class.forName("net.satisfy.candlelight.recipe.CookingPanRecipe");
             new com.pandaismyname1.emiletsdocompat.candlelight.CandlelightCompat().init(registry, manager);
