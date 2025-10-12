@@ -3,6 +3,7 @@ package com.pandaismyname1.emiletsdocompat.meadow;
 import com.pandaismyname1.emiletsdocompat.Emi_letsdo_compat;
 import com.pandaismyname1.emiletsdocompat.IEmiModCompat;
 import com.pandaismyname1.emiletsdocompat.meadow.internal.FondueFillRecipe;
+import com.pandaismyname1.emiletsdocompat.meadow.internal.FondueUseRecipe;
 import com.pandaismyname1.emiletsdocompat.meadow.internal.Registry;
 import dev.emi.emi.api.EmiRegistry;
 import dev.emi.emi.api.recipe.EmiRecipeCategory;
@@ -24,6 +25,19 @@ public class MeadowCompat implements IEmiModCompat {
                         registry.addRecipe(new CustomFondueFillRecipe(recipeCategory, (FondueFillRecipe) recipe));
                     },
                     Registry.FONDUE_FILL.get(),
+                    EmiStack.of(ObjectRegistry.FONDUE.get()));
+        } catch (NoSuchFieldError | NoSuchFieldException | ClassNotFoundException e) {
+        }
+
+        try {
+            var recipeCategory = new EmiRecipeCategory(new ResourceLocation(Emi_letsdo_compat.MOD_ID, "fondue_use"),
+                    EmiStack.of(ObjectRegistry.FONDUE.get()));
+            registerRecipeType(registry, manager,
+                    recipeCategory,
+                    (recipe) -> {
+                        registry.addRecipe(new CustomFondueUseRecipe(recipeCategory, (FondueUseRecipe) recipe));
+                    },
+                    Registry.FONDUE_USE.get(),
                     EmiStack.of(ObjectRegistry.FONDUE.get()));
         } catch (NoSuchFieldError | NoSuchFieldException | ClassNotFoundException e) {
         }

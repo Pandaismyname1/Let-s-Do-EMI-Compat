@@ -1,0 +1,11 @@
+{
+  "type": "emi_letsdo_compat:fondue_use",
+  "ingredient": {
+    "item": "minecraft:bread"
+  },
+  "result": {
+    "item": "meadow:cheese_stick",
+    "count": 1
+  },
+  "cheeseCost": 0.33
+}

@@ -17,6 +17,8 @@ public class Registry {
     public static final RegistrySupplier<RecipeType<FondueFillRecipe>> FONDUE_FILL = create("fondue_fill");
     public static final RegistrySupplier<RecipeSerializer<FondueFillRecipe>> FONDUE_FILL_SERIALIZER = create("fondue_fill", FondueFillRecipe.Serializer::new);
 
+    public static final RegistrySupplier<RecipeType<FondueUseRecipe>> FONDUE_USE = create("fondue_use");
+    public static final RegistrySupplier<RecipeSerializer<FondueUseRecipe>> FONDUE_USE_SERIALIZER = create("fondue_use", FondueUseRecipe.Serializer::new);
 
     private static <T extends Recipe<?>> RegistrySupplier<RecipeSerializer<T>> create(String name, Supplier<RecipeSerializer<T>> serializer) {
         return RECIPE_SERIALIZERS.register(name, serializer);
