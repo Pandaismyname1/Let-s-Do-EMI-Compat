@@ -14,7 +14,7 @@
       "com.pandaismyname1.emiletsdocompat.fabric.Emi_letsdo_compatFabric"
     ],
     "emi": [
-      "com.pandaismyname1.emiletsdocompat.Emi_letsdo_compat"
+      "com.pandaismyname1.emiletsdocompat.LetsDoEmiPlugin"
     ]
   },
   "mixins": [
