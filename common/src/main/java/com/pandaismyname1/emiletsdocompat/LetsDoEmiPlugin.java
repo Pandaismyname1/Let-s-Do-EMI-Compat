@@ -23,6 +23,14 @@ public class LetsDoEmiPlugin implements EmiPlugin {
         }
 
         try {
+            Class.forName("net.satisfy.bakery.Bakery");
+            Class.forName("net.satisfy.bakery.core.recipe.BakingStationRecipe");
+            new com.pandaismyname1.emiletsdocompat.bakery_fc.BakeryFCCompat().init(registry, manager);
+        } catch (ClassNotFoundException | NoSuchFieldException | NoSuchFieldError e) {
+            // Bakery not found
+        }
+
+        try {
             Class.forName("satisfy.beachparty.Beachparty");
             new com.pandaismyname1.emiletsdocompat.beachparty.BeachpartyCompat().init(registry, manager);
         } catch (ClassNotFoundException | NoSuchFieldException | NoSuchFieldError e) {
