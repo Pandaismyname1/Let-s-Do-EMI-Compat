@@ -69,7 +69,8 @@ public class LetsDoEmiPlugin implements EmiPlugin {
         }
 
         try {
-            Class.forName("satisfy.herbalbrews.HerbalBrews");
+            Class.forName("net.satisfy.herbalbrews.HerbalBrews");
+            Class.forName("net.satisfy.herbalbrews.core.registry.RecipeTypeRegistry");
             new com.pandaismyname1.emiletsdocompat.herbalbrews.HerbalbrewsCompat().init(registry, manager);
         } catch (ClassNotFoundException | NoSuchFieldException | NoSuchFieldError e) {
             // Herbalbrews not found

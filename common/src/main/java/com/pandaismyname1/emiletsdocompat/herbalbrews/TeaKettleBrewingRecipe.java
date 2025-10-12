@@ -9,74 +9,93 @@ import dev.emi.emi.api.stack.EmiStack;
 import dev.emi.emi.api.widget.WidgetHolder;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.crafting.Ingredient;
+import net.satisfy.herbalbrews.core.registry.ObjectRegistry;
+import net.satisfy.herbalbrews.core.registry.TagsRegistry;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.function.Supplier;
 
 public class TeaKettleBrewingRecipe extends BasicEmiRecipe {
     public static final ResourceLocation TEXTURE = new ResourceLocation("herbalbrews", "textures/gui/tea_kettle.png");
+    private static final EmiIngredient WATER_INGREDIENT;
+    private static final EmiIngredient HEAT_INGREDIENT;
+    private static final EmiIngredient BOTTLE_INGREDIENT;
+
+    static {
+        WATER_INGREDIENT = EmiIngredient.of(
+                List.of(
+                        EmiIngredient.of(Ingredient.of(TagsRegistry.SMALL_WATER_FILL)),
+                        EmiIngredient.of(Ingredient.of(TagsRegistry.LARGE_WATER_FILL))
+                )
+        );
+        HEAT_INGREDIENT = EmiIngredient.of(Ingredient.of(TagsRegistry.HEAT_ITEMS));
+        BOTTLE_INGREDIENT = EmiIngredient.of(Ingredient.of(TagsRegistry.CONTAINER_ITEMS));
+    }
     protected static final Supplier<RegistryAccess> REGISTRY_ACCESS =
             EnvExecutor.getEnvSpecific(() -> () -> () -> GameInstance.getClient().player.level().registryAccess(),
                     () -> () -> () -> GameInstance.getServer().registryAccess());
 
-    public TeaKettleBrewingRecipe(EmiRecipeCategory category, satisfy.herbalbrews.recipe.TeaKettleRecipe recipe) {
+    public TeaKettleBrewingRecipe(EmiRecipeCategory category, net.satisfy.herbalbrews.core.recipe.TeaKettleRecipe recipe) {
         super(category, recipe.getId(), 70, 18);
         var ingredients = recipe.getIngredients();
         for (var ingredient : ingredients) {
-            this.inputs.add(EmiIngredient.of(ingredient));
+            if (Arrays.stream(ingredient.getItems()).noneMatch((stack) -> stack.is(TagsRegistry.CONTAINER_ITEMS))) {
+                this.inputs.add(EmiIngredient.of(ingredient));
+            }
         }
         this.outputs.add(EmiStack.of(recipe.getResultItem(REGISTRY_ACCESS.get())));
     }
 
     @Override
     public void addWidgets(WidgetHolder widgets) {
-        widgets.addTexture(TEXTURE, 0, 0, 124, 60, 26, 12);
-        widgets.addAnimatedTexture(TEXTURE, 67, 3, 19, 29, 176, 16, 5000, true, false, false);
-        widgets.addAnimatedTexture(TEXTURE, 98, 44, 16, 14, 176, 0, 5000, false, true, false);
+        var bgTex = widgets.addTexture(TEXTURE, 0, 0, 157, 69, 10, 9);
+        var waterTex = widgets.addAnimatedTexture(TEXTURE, 131, 7, 8, 43, 183, 31, 5000, false, true, true);
+        var heatTex = widgets.addAnimatedTexture(TEXTURE, 146, 7, 5, 43, 176, 31, 5000, false, true, true);
+        var fireTex = widgets.addAnimatedTexture(TEXTURE, 141, 53, 14, 14, 176, 0, 5000, false, true, false);
+        var arrowTex = widgets.addAnimatedTexture(TEXTURE, 44, 12, 24, 17, 176, 14, 5000, true, false, false);
 
 
-        if (!this.inputs.isEmpty()) {
-            var s = widgets.addSlot(this.inputs.get(0), 3, 4);
-            s.drawBack(false);
-        }
+        var input1 = widgets.addSlot(this.inputs.get(0), 2, 2);
+        input1.drawBack(false);
 
         if (this.inputs.size() > 1) {
-            var s = widgets.addSlot(this.inputs.get(1), 21, 4);
-            s.drawBack(false);
+            var input2 = widgets.addSlot(this.inputs.get(1), 20, 2);
+            input2.drawBack(false);
         }
 
         if (this.inputs.size() > 2) {
-            var s = widgets.addSlot(this.inputs.get(2), 39, 4);
-            s.drawBack(false);
+            var input3 = widgets.addSlot(this.inputs.get(2), 2, 20);
+            input3.drawBack(false);
         }
 
         if (this.inputs.size() > 3) {
-            var s = widgets.addSlot(this.inputs.get(3), 3, 22);
-            s.drawBack(false);
+            var input4 = widgets.addSlot(this.inputs.get(3), 20, 20);
+            input4.drawBack(false);
         }
 
-        if (this.inputs.size() > 4) {
-            var s = widgets.addSlot(this.inputs.get(4), 21, 22);
-            s.drawBack(false);
-        }
+        var bottle =  widgets.addSlot(BOTTLE_INGREDIENT, 20, 42);
+        bottle.drawBack(false);
 
-        if (this.inputs.size() > 5) {
-            var s = widgets.addSlot(this.inputs.get(5), 39, 22);
-            s.drawBack(false);
-        }
+        var water = widgets.addSlot(WATER_INGREDIENT, 107, 33);
+        water.drawBack(false);
 
-        if (!this.outputs.isEmpty()) {
-            var s = widgets.addSlot(this.outputs.get(0), 97, 15);
-            s.drawBack(false);
-        }
+        var  heat = widgets.addSlot(HEAT_INGREDIENT, 84, 48);
+        heat.drawBack(false);
+
+        var output = widgets.addSlot(this.outputs.get(0), 80, 12);
+        output.drawBack(false);
     }
 
     @Override
     public int getDisplayHeight() {
-        return 60;
+        return 69;
     }
 
     @Override
     public int getDisplayWidth() {
-        return 124;
+        return 157;
     }
 }

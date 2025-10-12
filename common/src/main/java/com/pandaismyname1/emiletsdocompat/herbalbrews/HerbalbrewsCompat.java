@@ -6,8 +6,8 @@ import dev.emi.emi.api.recipe.EmiRecipeCategory;
 import dev.emi.emi.api.stack.EmiStack;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.crafting.RecipeManager;
-import satisfy.herbalbrews.HerbalBrews;
-import satisfy.herbalbrews.registry.ObjectRegistry;
+import net.satisfy.herbalbrews.HerbalBrews;
+import net.satisfy.herbalbrews.core.registry.ObjectRegistry;
 
 public class HerbalbrewsCompat implements IEmiModCompat {
     @Override
@@ -18,9 +18,9 @@ public class HerbalbrewsCompat implements IEmiModCompat {
             registerRecipeType(registry, manager,
                     recipeCategory,
                     (recipe) -> {
-                        registry.addRecipe(new CauldronBrewingRecipe(recipeCategory, (satisfy.herbalbrews.recipe.CauldronRecipe) recipe));
+                        registry.addRecipe(new CauldronBrewingRecipe(recipeCategory, (net.satisfy.herbalbrews.core.recipe.CauldronRecipe) recipe));
                     },
-                    satisfy.herbalbrews.registry.RecipeTypeRegistry.CAULDRON_RECIPE_TYPE.get(),
+                    net.satisfy.herbalbrews.core.registry.RecipeTypeRegistry.CAULDRON_RECIPE_TYPE.get(),
                     EmiStack.of(ObjectRegistry.CAULDRON.get()));
         } catch (NoSuchFieldError | NoSuchFieldException | ClassNotFoundException e) {
         }
@@ -31,9 +31,9 @@ public class HerbalbrewsCompat implements IEmiModCompat {
             registerRecipeType(registry, manager,
                     recipeCategory,
                     (recipe) -> {
-                        registry.addRecipe(new TeaKettleBrewingRecipe(recipeCategory, (satisfy.herbalbrews.recipe.TeaKettleRecipe) recipe));
+                        registry.addRecipe(new TeaKettleBrewingRecipe(recipeCategory, (net.satisfy.herbalbrews.core.recipe.TeaKettleRecipe) recipe));
                     },
-                    satisfy.herbalbrews.registry.RecipeTypeRegistry.TEA_KETTLE_RECIPE_TYPE.get(),
+                    net.satisfy.herbalbrews.core.registry.RecipeTypeRegistry.TEA_KETTLE_RECIPE_TYPE.get(),
                     EmiStack.of(ObjectRegistry.TEA_KETTLE.get()),
                     EmiStack.of(ObjectRegistry.COPPER_TEA_KETTLE.get()));
         } catch (NoSuchFieldError | NoSuchFieldException | ClassNotFoundException e) {
