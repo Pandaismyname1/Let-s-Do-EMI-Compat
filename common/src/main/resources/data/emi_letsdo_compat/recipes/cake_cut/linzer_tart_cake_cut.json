@@ -1,0 +1,10 @@
+{
+  "type": "emi_letsdo_compat:cake_cut",
+  "ingredient": {
+    "item": "bakery:linzer_tart"
+  },
+  "result": {
+    "item": "bakery:linzer_tart_slice",
+    "count": 4
+  }
+}

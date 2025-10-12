@@ -10,6 +10,23 @@ public class Emi_letsdo_compat {
         } catch (ClassNotFoundException | NoSuchFieldError e) {
             // Meadow not found
         }
+
+
+        try {
+            Class.forName("net.satisfy.bakery.Bakery");
+            Class.forName("net.satisfy.bakery.recipe.BakingStationRecipe");
+            com.pandaismyname1.emiletsdocompat.bakery.internal.Registry.init();
+        } catch (ClassNotFoundException | NoSuchFieldError e) {
+            // Bakery not found
+        }
+
+        try {
+            Class.forName("net.satisfy.bakery.Bakery");
+            Class.forName("net.satisfy.bakery.core.recipe.BakingStationRecipe");
+            com.pandaismyname1.emiletsdocompat.bakery.internal.Registry.init();
+        } catch (ClassNotFoundException | NoSuchFieldError e) {
+            // Bakery not found
+        }
     }
 }
 

@@ -1,0 +1,10 @@
+{
+  "type": "emi_letsdo_compat:cake_cut",
+  "ingredient": {
+    "item": "bakery:bundt_cake"
+  },
+  "result": {
+    "item": "bakery:bundt_cake_slice",
+    "count": 4
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "type": "emi_letsdo_compat:cake_cut",
+  "ingredient": {
+    "item": "bakery:apple_pie"
+  },
+  "result": {
+    "item": "bakery:apple_pie_slice",
+    "count": 4
+  }
+}

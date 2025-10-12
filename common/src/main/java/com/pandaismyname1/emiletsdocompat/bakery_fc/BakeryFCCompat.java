@@ -1,6 +1,7 @@
 package com.pandaismyname1.emiletsdocompat.bakery_fc;
 
 import com.pandaismyname1.emiletsdocompat.IEmiModCompat;
+import com.pandaismyname1.emiletsdocompat.bakery.CustomCakeCutRecipe;
 import dev.emi.emi.api.EmiRegistry;
 import dev.emi.emi.api.recipe.EmiRecipeCategory;
 import dev.emi.emi.api.stack.EmiStack;
@@ -20,6 +21,17 @@ public class BakeryFCCompat implements IEmiModCompat {
                     },
                     net.satisfy.bakery.core.registry.RecipeTypeRegistry.BAKING_STATION_RECIPE_TYPE.get(),
                     EmiStack.of(net.satisfy.bakery.core.registry.ObjectRegistry.BAKER_STATION.get()));
+        } catch (NoSuchFieldError | NoSuchFieldException | ClassNotFoundException e) {
+        }
+        try {
+            var recipeCategory = new EmiRecipeCategory(new ResourceLocation(com.pandaismyname1.emiletsdocompat.Emi_letsdo_compat.MOD_ID, "cake_cut"),
+                    EmiStack.of(net.minecraft.world.item.Items.CAKE));
+            registerRecipeType(registry, manager,
+                    recipeCategory,
+                    (recipe) -> {
+                        registry.addRecipe(new CustomCakeCutRecipe(recipeCategory, (com.pandaismyname1.emiletsdocompat.bakery.internal.CakeCutRecipe) recipe));
+                    },
+                    com.pandaismyname1.emiletsdocompat.bakery.internal.Registry.CAKE_CUT.get());
         } catch (NoSuchFieldError | NoSuchFieldException | ClassNotFoundException e) {
         }
     }

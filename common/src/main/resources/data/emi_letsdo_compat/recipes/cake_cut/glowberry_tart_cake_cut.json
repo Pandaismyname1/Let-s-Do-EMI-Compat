@@ -1,0 +1,10 @@
+{
+  "type": "emi_letsdo_compat:cake_cut",
+  "ingredient": {
+    "item": "bakery:glowberry_tart"
+  },
+  "result": {
+    "item": "bakery:glowberry_pie_slice",
+    "count": 4
+  }
+}

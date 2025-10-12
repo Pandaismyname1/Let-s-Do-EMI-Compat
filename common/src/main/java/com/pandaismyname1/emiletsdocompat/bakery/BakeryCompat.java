@@ -70,5 +70,16 @@ public class BakeryCompat implements IEmiModCompat {
                     EmiStack.of(net.satisfy.bakery.registry.ObjectRegistry.SMALL_COOKING_POT.get()));
         } catch (NoSuchFieldError | NoSuchFieldException | ClassNotFoundException e) {
         }
+        try {
+            var recipeCategory = new EmiRecipeCategory(new ResourceLocation(com.pandaismyname1.emiletsdocompat.Emi_letsdo_compat.MOD_ID, "cake_cut"),
+                    EmiStack.of(net.minecraft.world.item.Items.CAKE));
+            registerRecipeType(registry, manager,
+                    recipeCategory,
+                    (recipe) -> {
+                        registry.addRecipe(new CustomCakeCutRecipe(recipeCategory, (com.pandaismyname1.emiletsdocompat.bakery.internal.CakeCutRecipe) recipe));
+                    },
+                    com.pandaismyname1.emiletsdocompat.bakery.internal.Registry.CAKE_CUT.get());
+        } catch (NoSuchFieldError | NoSuchFieldException | ClassNotFoundException e) {
+        }
     }
 }

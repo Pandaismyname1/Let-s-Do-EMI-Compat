@@ -1,0 +1,10 @@
+{
+  "type": "emi_letsdo_compat:cake_cut",
+  "ingredient": {
+    "item": "bakery:sweetberry_cake"
+  },
+  "result": {
+    "item": "bakery:sweetberry_cake_slice",
+    "count": 4
+  }
+}
