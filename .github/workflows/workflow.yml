@@ -1,5 +1,5 @@
 name: Publish on GitHub, CurseForge & Modrinth
-on: [ push, pull_request, workflow_dispatch ]
+on: [ workflow_dispatch ]
 
 env:
   MINECRAFT_VERSION: 1.20.1
@@ -49,7 +49,7 @@ jobs:
           github-tag: "v${{env.VERSION}}+${{env.MINECRAFT_VERSION}}+fabric"
           github-token: "${{env.GITHUB_TOKEN}}"
 
-          name: "[Let's Do Addon] EMI Compat ${{ env.VERSION }} for Minecraft ${{ env.MINECRAFT_VERSION }} Fabric"
+          name: "${{ env.VERSION }}+${{ env.MINECRAFT_VERSION }}+fabric"
           files: "fabric/build/libs/emi-letsdo-compat-${{env.VERSION}}.jar"
           version: "${{env.VERSION}}+${{env.MINECRAFT_VERSION}}+fabric"
           version-type: release
@@ -71,7 +71,7 @@ jobs:
           github-tag: "v${{env.VERSION}}+${{env.MINECRAFT_VERSION}}+forge"
           github-token: "${{env.GITHUB_TOKEN}}"
 
-          name: "[Let's Do Addon] EMI Compat ${{ env.VERSION }} for Minecraft ${{ env.MINECRAFT_VERSION }} Forge"
+          name: "${{ env.VERSION }}+${{ env.MINECRAFT_VERSION }}+forge"
           files: "forge/build/libs/emi-letsdo-compat-${{env.VERSION}}.jar"
           version: "${{env.VERSION}}+${{env.MINECRAFT_VERSION}}+forge"
           version-type: release
