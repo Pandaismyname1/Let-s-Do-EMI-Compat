@@ -23,34 +23,28 @@ dependencies {
     modImplementation "curse.maven:lets-do-vinery-704465:5992485"
     modImplementation "curse.maven:lets-do-bakery-886559:5528401"
     modImplementation "curse.maven:lets-do-meadow-821483:6467345"
-    modImplementation "curse.maven:lets-do-nethervinery-930072:5987943"
     modImplementation "curse.maven:lets-do-candlelight-846962:5427654"
     modImplementation "curse.maven:lets-do-brewery-971636:5427505"
     modImplementation "curse.maven:lets-do-herbal-brews-951221:6458888"
     modImplementation "curse.maven:lets-do-beachparty-858691:5320667"
     modImplementation "curse.maven:lets-do-farm-charm-1038103:7088023"
     modImplementation "curse.maven:lets-do-bakery-farm-charm-compat-1038130:6847991"
-    modImplementation "curse.maven:lets-do-candlelight-farm-charm-compat-1038117:6195387"
+    modImplementation "curse.maven:lets-do-candlelight-farm-charm-compat-1038117:6850363"
     modImplementation "curse.maven:lets-do-brewery-farm-charm-compat-1038106:6195390"
-    modImplementation "curse.maven:lets-do-furniture-1062363:5988123"
-    modImplementation "curse.maven:lets-do-camping-1072398:5823924"
 
 
     // Forge
     modImplementation "curse.maven:lets-do-vinery-704465:5992486"
     modImplementation "curse.maven:lets-do-bakery-886559:5528402"
     modImplementation "curse.maven:lets-do-meadow-821483:6467344"
-    modImplementation "curse.maven:lets-do-nethervinery-930072:5987940"
     modImplementation "curse.maven:lets-do-candlelight-846962:5427646"
     modImplementation "curse.maven:lets-do-brewery-971636:5427504"
     modImplementation "curse.maven:lets-do-herbal-brews-951221:6458889"
     modImplementation "curse.maven:lets-do-beachparty-858691:5320668"
     modImplementation "curse.maven:lets-do-farm-charm-1038103:7088013"
     modImplementation "curse.maven:lets-do-bakery-farm-charm-compat-1038130:6847992"
-    modImplementation "curse.maven:lets-do-candlelight-farm-charm-compat-1038117:6195385"
+    modImplementation "curse.maven:lets-do-candlelight-farm-charm-compat-1038117:6850362"
     modImplementation "curse.maven:lets-do-brewery-farm-charm-compat-1038106:6195389"
-    modImplementation "curse.maven:lets-do-furniture-1062363:5988125"
-    modImplementation "curse.maven:lets-do-camping-1072398:5823939"
 }
 
 publishing {
