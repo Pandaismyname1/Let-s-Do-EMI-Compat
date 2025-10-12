@@ -1,6 +1,9 @@
 package com.pandaismyname1.emiletsdocompat.meadow;
 
+import com.pandaismyname1.emiletsdocompat.Emi_letsdo_compat;
 import com.pandaismyname1.emiletsdocompat.IEmiModCompat;
+import com.pandaismyname1.emiletsdocompat.meadow.internal.FondueFillRecipe;
+import com.pandaismyname1.emiletsdocompat.meadow.internal.Registry;
 import dev.emi.emi.api.EmiRegistry;
 import dev.emi.emi.api.recipe.EmiRecipeCategory;
 import dev.emi.emi.api.stack.EmiStack;
@@ -12,6 +15,18 @@ import net.satisfy.meadow.core.registry.ObjectRegistry;
 public class MeadowCompat implements IEmiModCompat {
     @Override
     public void init(EmiRegistry registry, RecipeManager manager) throws NoSuchFieldException {
+        try {
+            var recipeCategory = new EmiRecipeCategory(new ResourceLocation(Emi_letsdo_compat.MOD_ID, "fondue_fill"),
+                    EmiStack.of(ObjectRegistry.FONDUE.get()));
+            registerRecipeType(registry, manager,
+                    recipeCategory,
+                    (recipe) -> {
+                        registry.addRecipe(new CustomFondueFillRecipe(recipeCategory, (FondueFillRecipe) recipe));
+                    },
+                    Registry.FONDUE_FILL.get(),
+                    EmiStack.of(ObjectRegistry.FONDUE.get()));
+        } catch (NoSuchFieldError | NoSuchFieldException | ClassNotFoundException e) {
+        }
 
         try {
             var recipeCategory = new EmiRecipeCategory(new ResourceLocation(Meadow.MOD_ID, "cheese"),

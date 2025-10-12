@@ -10,5 +10,6 @@ public class Emi_letsdo_compatForge {
     public Emi_letsdo_compatForge() {
         // Submit our event bus to let architectury register our content on the right time
         EventBuses.registerModEventBus(Emi_letsdo_compat.MOD_ID, FMLJavaModLoadingContext.get().getModEventBus());
+        Emi_letsdo_compat.init();
     }
 }

@@ -1,0 +1,7 @@
+{
+  "type": "emi_letsdo_compat:fondue_fill",
+  "ingredient": {
+    "tag": "meadow:cheese_blocks"
+  },
+  "fillAmount": 1
+}
