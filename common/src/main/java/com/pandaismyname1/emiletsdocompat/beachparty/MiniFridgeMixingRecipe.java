@@ -10,6 +10,7 @@ import dev.emi.emi.api.stack.EmiStack;
 import dev.emi.emi.api.widget.WidgetHolder;
 import net.minecraft.core.RegistryAccess;
 import net.satisfy.beachparty.client.gui.MiniFridgeGui;
+import net.satisfy.beachparty.client.gui.PalmBarGui;
 import net.satisfy.beachparty.core.recipe.MiniFridgeRecipe;
 
 import java.util.function.Supplier;
@@ -30,32 +31,27 @@ public class MiniFridgeMixingRecipe extends BasicEmiRecipe {
 
     @Override
     public void addWidgets(WidgetHolder widgets) {
-        widgets.addTexture(MiniFridgeGui.BG, -1, -1, 124, 60, 26, 13);
-        widgets.addAnimatedTexture(MiniFridgeGui.BG, 67, 31, 22, 10, 177, 26, 5000, true, false, false);
+        widgets.addTexture(MiniFridgeGui.BG, 0, 0, 88, 34, 52, 26);
+        widgets.addAnimatedTexture(MiniFridgeGui.BG, 27, 8, 24, 17, 176, 14, 5000, true, false, false);
 
         if (!this.inputs.isEmpty()) {
-            var s = widgets.addSlot(this.inputs.get(0), 18, 12);
-            s.drawBack(false);
-        }
-
-        if (this.inputs.size() > 1) {
-            var s = widgets.addSlot(this.inputs.get(1), 31, 28);
+            var s = widgets.addSlot(this.inputs.get(0), 3, 8);
             s.drawBack(false);
         }
 
         if (!this.outputs.isEmpty()) {
-            var s = widgets.addSlot(this.outputs.get(0), 100, 27);
+            var s = widgets.addSlot(this.outputs.get(0), 63, 8);
             s.drawBack(false);
         }
     }
 
     @Override
     public int getDisplayHeight() {
-        return 60;
+        return 34;
     }
 
     @Override
     public int getDisplayWidth() {
-        return 124;
+        return 88;
     }
 }
