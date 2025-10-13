@@ -60,7 +60,7 @@ jobs:
           java: "${{env.JAVA_VERSION}}"
           dependencies: |
 
-      - name: Publish Forge (CurseForge/Modrinth/GitHub)
+      - name: Publish NeoForge (CurseForge/Modrinth/GitHub)
         uses: Kir-Antipov/mc-publish@v3.3
         with:
           curseforge-id: 1063821
@@ -73,7 +73,7 @@ jobs:
           github-token: "${{env.GITHUB_TOKEN}}"
 
           name: "${{ env.VERSION }}+${{ env.MINECRAFT_VERSION }}+forge"
-          files: "forge/build/libs/emi-letsdo-compat-${{env.VERSION}}.jar"
+          files: "neoforge/build/libs/emi-letsdo-compat-${{env.VERSION}}.jar"
           version: "${{env.VERSION}}+${{env.MINECRAFT_VERSION}}+forge"
           version-type: release
           changelog-file: CHANGELOG.md
