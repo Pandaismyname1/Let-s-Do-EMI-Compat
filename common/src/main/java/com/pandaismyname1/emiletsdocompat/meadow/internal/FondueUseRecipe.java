@@ -1,14 +1,15 @@
 package com.pandaismyname1.emiletsdocompat.meadow.internal;
 
-import com.google.gson.JsonObject;
+import com.mojang.serialization.MapCodec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.core.NonNullList;
-import net.minecraft.core.RegistryAccess;
-import net.minecraft.network.FriendlyByteBuf;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.Container;
+import net.minecraft.network.RegistryFriendlyByteBuf;
+import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.Recipe;
+import net.minecraft.world.item.crafting.RecipeInput;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
@@ -18,14 +19,12 @@ import org.jetbrains.annotations.NotNull;
  * A recipe representing right-click use on the Fondue block that consumes an input item,
  * outputs another item, and consumes cheese from the fondue.
  */
-public class FondueUseRecipe implements Recipe<Container> {
-    private final ResourceLocation id;
+public class FondueUseRecipe implements Recipe<RecipeInput> {
     private final Ingredient ingredient;
     private final ItemStack result;
     private final float cheeseCost;
 
-    public FondueUseRecipe(ResourceLocation id, Ingredient ingredient, ItemStack result, float cheeseCost) {
-        this.id = id;
+    public FondueUseRecipe(Ingredient ingredient, ItemStack result, float cheeseCost) {
         this.ingredient = ingredient;
         this.result = result;
         this.cheeseCost = cheeseCost;
@@ -39,12 +38,12 @@ public class FondueUseRecipe implements Recipe<Container> {
     }
 
     @Override
-    public boolean matches(Container container, Level level) {
+    public boolean matches(RecipeInput recipeInput, Level level) {
         return false;
     }
 
     @Override
-    public @NotNull ItemStack assemble(Container container, RegistryAccess registryAccess) {
+    public @NotNull ItemStack assemble(RecipeInput recipeInput, HolderLookup.Provider provider) {
         return this.result.copy();
     }
 
@@ -54,17 +53,20 @@ public class FondueUseRecipe implements Recipe<Container> {
     }
 
     @Override
-    public @NotNull ItemStack getResultItem(RegistryAccess registryAccess) {
-        return this.result;
+    public @NotNull ItemStack getResultItem(HolderLookup.Provider provider) {
+        return this.result.copy();
+    }
+
+    public Ingredient getIngredient() {
+        return ingredient;
+    }
+
+    public ItemStack getResult() {
+        return result;
     }
 
     public float getCheeseCost() {
         return cheeseCost;
-    }
-
-    @Override
-    public @NotNull ResourceLocation getId() {
-        return this.id;
     }
 
     @Override
@@ -79,27 +81,32 @@ public class FondueUseRecipe implements Recipe<Container> {
 
     public static class Serializer implements RecipeSerializer<FondueUseRecipe> {
         @Override
-        public FondueUseRecipe fromJson(ResourceLocation id, JsonObject json) {
-            Ingredient ingredient = Ingredient.fromJson(json.getAsJsonObject("ingredient"));
-            JsonObject resultObj = json.getAsJsonObject("result");
-            ItemStack result = net.minecraft.world.item.crafting.ShapedRecipe.itemStackFromJson(resultObj);
-            float cheeseCost = json.getAsJsonPrimitive("cheeseCost").getAsFloat();
-            return new FondueUseRecipe(id, ingredient, result, cheeseCost);
+        public @NotNull MapCodec<FondueUseRecipe> codec() {
+            return RecordCodecBuilder.mapCodec(inst -> inst.group(
+                    Ingredient.CODEC.fieldOf("ingredient").forGetter(FondueUseRecipe::getIngredient),
+                    ItemStack.CODEC.fieldOf("result").forGetter(FondueUseRecipe::getResult),
+                    com.mojang.serialization.Codec.FLOAT.fieldOf("cheeseCost").forGetter(FondueUseRecipe::getCheeseCost)
+            ).apply(inst, FondueUseRecipe::new));
         }
 
         @Override
-        public FondueUseRecipe fromNetwork(ResourceLocation id, FriendlyByteBuf buf) {
-            Ingredient ingredient = Ingredient.fromNetwork(buf);
-            ItemStack result = buf.readItem();
-            float cheeseCost = buf.readFloat();
-            return new FondueUseRecipe(id, ingredient, result, cheeseCost);
-        }
+        public @NotNull StreamCodec<RegistryFriendlyByteBuf, FondueUseRecipe> streamCodec() {
+            return new StreamCodec<>() {
+                @Override
+                public void encode(RegistryFriendlyByteBuf buf, FondueUseRecipe recipe) {
+                    Ingredient.CONTENTS_STREAM_CODEC.encode(buf, recipe.getIngredient());
+                    ItemStack.STREAM_CODEC.encode(buf, recipe.getResult());
+                    buf.writeFloat(recipe.getCheeseCost());
+                }
 
-        @Override
-        public void toNetwork(FriendlyByteBuf buf, FondueUseRecipe recipe) {
-            recipe.ingredient.toNetwork(buf);
-            buf.writeItem(recipe.result);
-            buf.writeFloat(recipe.cheeseCost);
+                @Override
+                public @NotNull FondueUseRecipe decode(RegistryFriendlyByteBuf buf) {
+                    Ingredient ingredient = Ingredient.CONTENTS_STREAM_CODEC.decode(buf);
+                    ItemStack result = ItemStack.STREAM_CODEC.decode(buf);
+                    float cheese = buf.readFloat();
+                    return new FondueUseRecipe(ingredient, result, cheese);
+                }
+            };
         }
     }
 }

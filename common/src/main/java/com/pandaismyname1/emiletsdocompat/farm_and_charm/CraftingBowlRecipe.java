@@ -1,5 +1,6 @@
 package com.pandaismyname1.emiletsdocompat.farm_and_charm;
 
+import com.pandaismyname1.emiletsdocompat.MockRecipeIdGenerator;
 import dev.architectury.utils.EnvExecutor;
 import dev.architectury.utils.GameInstance;
 import dev.emi.emi.api.recipe.BasicEmiRecipe;
@@ -19,7 +20,7 @@ public class CraftingBowlRecipe extends BasicEmiRecipe {
                     () -> () -> () -> GameInstance.getServer().registryAccess());
 
     public CraftingBowlRecipe(EmiRecipeCategory category, net.satisfy.farm_and_charm.core.recipe.CraftingBowlRecipe recipe) {
-        super(category, recipe.getId(), 70, 18);
+        super(category, MockRecipeIdGenerator.generateRecipeId(), 70, 18);
         var ingredients = recipe.getIngredients();
         for (var ingredient : ingredients) {
             this.inputs.add(EmiIngredient.of(ingredient));

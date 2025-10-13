@@ -1,5 +1,6 @@
 package com.pandaismyname1.emiletsdocompat.bakery;
 
+import com.pandaismyname1.emiletsdocompat.MockRecipeIdGenerator;
 import dev.architectury.utils.EnvExecutor;
 import dev.architectury.utils.GameInstance;
 import dev.emi.emi.api.recipe.BasicEmiRecipe;
@@ -19,7 +20,7 @@ public class BakingStationRecipe extends BasicEmiRecipe {
                     () -> () -> () -> GameInstance.getServer().registryAccess());
 
     public BakingStationRecipe(EmiRecipeCategory category, net.satisfy.bakery.recipe.BakingStationRecipe recipe) {
-        super(category, recipe.getId(), 70, 18);
+        super(category, MockRecipeIdGenerator.generateRecipeId(), 70, 18);
         var ingredients = recipe.getIngredients();
         for (var ingredient : ingredients) {
             this.inputs.add(EmiIngredient.of(ingredient));

@@ -1,6 +1,7 @@
 package com.pandaismyname1.emiletsdocompat.vinery;
 
 import com.pandaismyname1.emiletsdocompat.Emi_letsdo_compat;
+import com.pandaismyname1.emiletsdocompat.MockRecipeIdGenerator;
 import com.pandaismyname1.emiletsdocompat.vinery.internal.GrapeMashingRecipe;
 import dev.architectury.utils.EnvExecutor;
 import dev.architectury.utils.GameInstance;
@@ -23,10 +24,9 @@ public class CustomGrapeMashingRecipe extends BasicEmiRecipe {
     protected static final Supplier<RegistryAccess> REGISTRY_ACCESS =
             EnvExecutor.getEnvSpecific(() -> () -> () -> GameInstance.getClient().player.level().registryAccess(),
                     () -> () -> () -> GameInstance.getServer().registryAccess());
-    private static float time = 0;
 
     public CustomGrapeMashingRecipe(EmiRecipeCategory category, GrapeMashingRecipe recipe) {
-        super(category, recipe.getId(), 70, 18);
+        super(category, MockRecipeIdGenerator.generateRecipeId(), 70, 18);
         recipe.getIngredients().forEach(ing -> this.inputs.add(EmiIngredient.of(ing)));
         this.outputs.add(EmiStack.of(recipe.getResultItem(REGISTRY_ACCESS.get())));
     }

@@ -1,6 +1,7 @@
 package com.pandaismyname1.emiletsdocompat.farm_and_charm;
 
 
+import com.pandaismyname1.emiletsdocompat.MockRecipeIdGenerator;
 import dev.architectury.utils.EnvExecutor;
 import dev.architectury.utils.GameInstance;
 import dev.emi.emi.api.recipe.BasicEmiRecipe;
@@ -22,7 +23,7 @@ public class PotCookingRecipe extends BasicEmiRecipe {
     protected final ItemStack CONTAINER_ITEM;
 
     public PotCookingRecipe(EmiRecipeCategory category, net.satisfy.farm_and_charm.core.recipe.CookingPotRecipe recipe) {
-        super(category, recipe.getId(), 70, 18);
+        super(category, MockRecipeIdGenerator.generateRecipeId(), 70, 18);
         CONTAINER_ITEM = recipe.getContainerItem();
         var ingredients = recipe.getIngredients();
         for (var ingredient : ingredients) {

@@ -1,5 +1,6 @@
 package com.pandaismyname1.emiletsdocompat.bakery;
 
+import com.pandaismyname1.emiletsdocompat.MockRecipeIdGenerator;
 import com.pandaismyname1.emiletsdocompat.bakery.internal.CakeCutRecipe;
 import dev.architectury.utils.EnvExecutor;
 import dev.architectury.utils.GameInstance;
@@ -20,7 +21,7 @@ public class CustomCakeCutRecipe extends BasicEmiRecipe {
                     () -> () -> () -> GameInstance.getServer().registryAccess());
 
     public CustomCakeCutRecipe(EmiRecipeCategory category, CakeCutRecipe recipe) {
-        super(category, recipe.getId(), 70, 18);
+        super(category, MockRecipeIdGenerator.generateRecipeId(), 70, 18);
         recipe.getIngredients().forEach(ing -> this.inputs.add(EmiIngredient.of(ing)));
         this.outputs.add(EmiStack.of(recipe.getResultItem(REGISTRY_ACCESS.get())));
     }

@@ -1,5 +1,6 @@
 package com.pandaismyname1.emiletsdocompat.meadow;
 
+import com.pandaismyname1.emiletsdocompat.MockRecipeIdGenerator;
 import com.pandaismyname1.emiletsdocompat.meadow.internal.FondueFillRecipe;
 import dev.architectury.utils.EnvExecutor;
 import dev.architectury.utils.GameInstance;
@@ -22,7 +23,7 @@ public class CustomFondueFillRecipe extends BasicEmiRecipe {
                     () -> () -> () -> GameInstance.getServer().registryAccess());
 
     public CustomFondueFillRecipe(EmiRecipeCategory category, FondueFillRecipe recipe) {
-        super(category, recipe.getId(), 70, 18);
+        super(category, MockRecipeIdGenerator.generateRecipeId(), 70, 18);
         var ingredients = recipe.getIngredients();
         for (var ingredient : ingredients) {
             this.inputs.add(EmiIngredient.of(ingredient));

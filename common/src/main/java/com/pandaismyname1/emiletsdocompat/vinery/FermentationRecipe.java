@@ -1,5 +1,6 @@
 package com.pandaismyname1.emiletsdocompat.vinery;
 
+import com.pandaismyname1.emiletsdocompat.MockRecipeIdGenerator;
 import dev.architectury.utils.EnvExecutor;
 import dev.architectury.utils.GameInstance;
 import dev.emi.emi.api.recipe.BasicEmiRecipe;
@@ -26,7 +27,7 @@ public class FermentationRecipe extends BasicEmiRecipe {
     private final boolean requiresBottle;
 
     public FermentationRecipe(EmiRecipeCategory category, net.satisfy.vinery.core.recipe.FermentationBarrelRecipe recipe) {
-        super(category, recipe.getId(), 70, 18);
+        super(category, MockRecipeIdGenerator.generateRecipeId(), 70, 18);
         this.juiceType = recipe.getJuiceType();
         this.fluidLevel = recipe.getJuiceAmount();
         this.requiresBottle = recipe.isWineBottleRequired();

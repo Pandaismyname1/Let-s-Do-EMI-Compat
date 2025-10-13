@@ -1,27 +1,26 @@
 package com.pandaismyname1.emiletsdocompat.meadow.internal;
 
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
+import com.mojang.serialization.MapCodec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.core.NonNullList;
-import net.minecraft.core.RegistryAccess;
-import net.minecraft.network.FriendlyByteBuf;
+import net.minecraft.network.RegistryFriendlyByteBuf;
+import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.Container;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.Recipe;
+import net.minecraft.world.item.crafting.RecipeInput;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.NotNull;
 
-public class FondueFillRecipe implements Recipe<Container> {
-    private final ResourceLocation id;
+public class FondueFillRecipe implements Recipe<RecipeInput> {
     private final Ingredient ingredient;
     private final float fillAmount;
 
-    public FondueFillRecipe(ResourceLocation id, Ingredient ingredient, float fillAmount) {
-        this.id = id;
+    public FondueFillRecipe(Ingredient ingredient, float fillAmount) {
         this.ingredient = ingredient;
         this.fillAmount = fillAmount;
     }
@@ -34,12 +33,12 @@ public class FondueFillRecipe implements Recipe<Container> {
     }
 
     @Override
-    public boolean matches(Container container, Level level) {
+    public boolean matches(RecipeInput recipeInput, Level level) {
         return false;
     }
 
     @Override
-    public @NotNull ItemStack assemble(Container container, RegistryAccess registryAccess) {
+    public @NotNull ItemStack assemble(RecipeInput recipeInput, HolderLookup.Provider provider) {
         return ItemStack.EMPTY;
     }
 
@@ -49,13 +48,8 @@ public class FondueFillRecipe implements Recipe<Container> {
     }
 
     @Override
-    public @NotNull ItemStack getResultItem(RegistryAccess registryAccess) {
+    public @NotNull ItemStack getResultItem(HolderLookup.Provider provider) {
         return ItemStack.EMPTY;
-    }
-
-    @Override
-    public @NotNull ResourceLocation getId() {
-        return this.id;
     }
 
     @Override
@@ -68,30 +62,39 @@ public class FondueFillRecipe implements Recipe<Container> {
         return Registry.FONDUE_FILL.get();
     }
 
+    public Ingredient getIngredient() {
+        return ingredient;
+    }
+
+    public float getFillAmount() {
+        return fillAmount;
+    }
+
     public static class Serializer implements RecipeSerializer<FondueFillRecipe> {
-        public Serializer() {
-
+        @Override
+        public @NotNull MapCodec<FondueFillRecipe> codec() {
+            return RecordCodecBuilder.mapCodec(inst -> inst.group(
+                    Ingredient.CODEC.fieldOf("ingredient").forGetter(FondueFillRecipe::getIngredient),
+                    com.mojang.serialization.Codec.FLOAT.fieldOf("fillAmount").forGetter(FondueFillRecipe::getFillAmount)
+            ).apply(inst, FondueFillRecipe::new));
         }
 
         @Override
-        public FondueFillRecipe fromJson(ResourceLocation resourceLocation, JsonObject jsonObject) {
-            JsonObject ingredientObject = jsonObject.getAsJsonObject("ingredient");
-            Ingredient ingredient = Ingredient.fromJson(ingredientObject);
-            float fillAmount = jsonObject.get("fillAmount").getAsJsonPrimitive().getAsFloat();
-            return new FondueFillRecipe(resourceLocation, ingredient, fillAmount);
-        }
+        public @NotNull StreamCodec<RegistryFriendlyByteBuf, FondueFillRecipe> streamCodec() {
+            return new StreamCodec<>() {
+                @Override
+                public void encode(RegistryFriendlyByteBuf buf, FondueFillRecipe recipe) {
+                    Ingredient.CONTENTS_STREAM_CODEC.encode(buf, recipe.getIngredient());
+                    buf.writeFloat(recipe.getFillAmount());
+                }
 
-        @Override
-        public FondueFillRecipe fromNetwork(ResourceLocation resourceLocation, FriendlyByteBuf friendlyByteBuf) {
-            Ingredient ingredient = Ingredient.fromNetwork(friendlyByteBuf);
-            float fillAmount = friendlyByteBuf.readFloat();
-            return new FondueFillRecipe(resourceLocation, ingredient,  fillAmount);
-        }
-
-        @Override
-        public void toNetwork(FriendlyByteBuf friendlyByteBuf, FondueFillRecipe recipe) {
-            recipe.ingredient.toNetwork(friendlyByteBuf);
-            friendlyByteBuf.writeFloat(recipe.fillAmount);
+                @Override
+                public @NotNull FondueFillRecipe decode(RegistryFriendlyByteBuf buf) {
+                    Ingredient ingredient = Ingredient.CONTENTS_STREAM_CODEC.decode(buf);
+                    float fill = buf.readFloat();
+                    return new FondueFillRecipe(ingredient, fill);
+                }
+            };
         }
     }
 }
