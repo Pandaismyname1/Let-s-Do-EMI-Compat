@@ -32,18 +32,17 @@ dependencies {
 
     common(project(path: ":common", configuration: "namedElements")) { transitive false }
     shadowCommon(project(path: ":common", configuration: "transformProductionFabric")) { transitive false }
-    modImplementation "curse.maven:lets-do-vinery-704465:5992485"
-    modImplementation "curse.maven:lets-do-bakery-886559:5528401"
-    modImplementation "curse.maven:lets-do-meadow-821483:6467345"
-    modImplementation "curse.maven:lets-do-candlelight-846962:5427654"
-    modImplementation "curse.maven:lets-do-brewery-971636:5427505"
-    modImplementation "curse.maven:lets-do-herbal-brews-951221:6458888"
-    modImplementation "curse.maven:lets-do-beachparty-858691:5320667"
-    modImplementation "curse.maven:lets-do-farm-charm-1038103:7088023"
-    modImplementation "curse.maven:lets-do-bakery-farm-charm-compat-1038130:6847991"
-    modImplementation "curse.maven:lets-do-candlelight-farm-charm-compat-1038117:6850363"
-    modImplementation "curse.maven:lets-do-brewery-farm-charm-compat-1038106:6195390"
-    modImplementation "curse.maven:emi-580555:6420944"
+//    modImplementation "curse.maven:lets-do-vinery-704465:5992485"
+//    modImplementation "curse.maven:lets-do-bakery-886559:5528401"
+    modImplementation "curse.maven:lets-do-meadow-821483:7064941"
+//    modImplementation "curse.maven:lets-do-candlelight-846962:5427654"
+//    modImplementation "curse.maven:lets-do-brewery-971636:5427505"
+    modImplementation "curse.maven:lets-do-herbal-brews-951221:7001993"
+    modImplementation "curse.maven:lets-do-beachparty-858691:7021365"
+    modImplementation "curse.maven:lets-do-farm-charm-1038103:7081974"
+    modImplementation "curse.maven:lets-do-bakery-farm-charm-compat-1038130:7032848"
+    modImplementation "curse.maven:lets-do-candlelight-farm-charm-compat-1038117:7057791"
+    modImplementation "curse.maven:lets-do-brewery-farm-charm-compat-1038106:7032523"
 }
 
 processResources {
