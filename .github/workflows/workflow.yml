@@ -58,6 +58,7 @@ jobs:
           loaders: fabric
           game-versions: "${{env.MINECRAFT_VERSION}}"
           java: "${{env.JAVA_VERSION}}"
+          dependencies: |
 
       - name: Publish Forge (CurseForge/Modrinth/GitHub)
         uses: Kir-Antipov/mc-publish@v3.3
@@ -77,6 +78,6 @@ jobs:
           version-type: release
           changelog-file: CHANGELOG.md
 
-          loaders: forge
+          loaders: neoforge
           game-versions: "${{env.MINECRAFT_VERSION}}"
           java: "${{env.JAVA_VERSION}}"
