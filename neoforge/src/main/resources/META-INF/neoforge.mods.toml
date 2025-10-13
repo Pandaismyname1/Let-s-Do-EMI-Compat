@@ -14,12 +14,26 @@ description = '''
 modId = "neoforge"
 mandatory = true
 versionRange = "[21.0,)"
-ordering = "NONE"
-side = "BOTH"
+ordering = "AFTER"
+side = "CLIENT"
 # Here's another dependency
 [[dependencies.emi_letsdo_compat]]
 modId = "minecraft"
 mandatory = true
-versionRange = "[1.21,)"
-ordering = "NONE"
-side = "BOTH"
+versionRange = "[1.21.1,)"
+ordering = "AFTER"
+side = "CLIENT"
+
+[[dependencies.emi_letsdo_compat]]
+modId = "architectury"
+mandatory = true
+versionRange = "[0.107.0,)"
+ordering = "AFTER"
+side = "CLIENT"
+
+[[dependencies.emi_letsdo_compat]]
+modId = "emi"
+mandatory = true
+versionRange = "[1.1.13,)"
+ordering = "AFTER"
+side = "CLIENT"

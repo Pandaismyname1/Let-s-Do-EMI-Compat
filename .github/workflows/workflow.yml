@@ -49,7 +49,7 @@ jobs:
           github-tag: "v${{env.VERSION}}+${{env.MINECRAFT_VERSION}}+fabric"
           github-token: "${{env.GITHUB_TOKEN}}"
 
-          name: "${{ env.VERSION }}+${{ env.MINECRAFT_VERSION }}+fabric"
+          name: "emi-letsdo-compat-${{ env.VERSION }}+${{ env.MINECRAFT_VERSION }}+fabric"
           files: "fabric/build/libs/emi-letsdo-compat-${{env.VERSION}}.jar"
           version: "${{env.VERSION}}+${{env.MINECRAFT_VERSION}}+fabric"
           version-type: release
@@ -69,12 +69,12 @@ jobs:
           modrinth-id: k6hi4lMv
           modrinth-token: "${{env.MODRINTH_TOKEN}}"
 
-          github-tag: "v${{env.VERSION}}+${{env.MINECRAFT_VERSION}}+forge"
+          github-tag: "v${{env.VERSION}}+${{env.MINECRAFT_VERSION}}+neoforge"
           github-token: "${{env.GITHUB_TOKEN}}"
 
-          name: "${{ env.VERSION }}+${{ env.MINECRAFT_VERSION }}+forge"
+          name: "emi-letsdo-compat-${{ env.VERSION }}+${{ env.MINECRAFT_VERSION }}+neoforge"
           files: "neoforge/build/libs/emi-letsdo-compat-${{env.VERSION}}.jar"
-          version: "${{env.VERSION}}+${{env.MINECRAFT_VERSION}}+forge"
+          version: "${{env.VERSION}}+${{env.MINECRAFT_VERSION}}+neoforge"
           version-type: release
           changelog-file: CHANGELOG.md
 
