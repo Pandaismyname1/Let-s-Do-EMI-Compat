@@ -12,7 +12,7 @@ public class BakeryFCCompat implements IEmiModCompat {
 
     public void init(EmiRegistry registry, RecipeManager manager) throws NoSuchFieldException {
         try {
-            var recipeCategory = new EmiRecipeCategory(new ResourceLocation(net.satisfy.bakery.Bakery.MOD_ID, "caking"),
+            var recipeCategory = new EmiRecipeCategory(ResourceLocation.fromNamespaceAndPath(net.satisfy.bakery.Bakery.MOD_ID, "caking"),
                     EmiStack.of(net.satisfy.bakery.core.registry.ObjectRegistry.BAKER_STATION.get()));
             registerRecipeType(registry, manager,
                     recipeCategory,
@@ -24,7 +24,7 @@ public class BakeryFCCompat implements IEmiModCompat {
         } catch (NoSuchFieldError | NoSuchFieldException | ClassNotFoundException e) {
         }
         try {
-            var recipeCategory = new EmiRecipeCategory(new ResourceLocation(com.pandaismyname1.emiletsdocompat.Emi_letsdo_compat.MOD_ID, "cake_cut"),
+            var recipeCategory = new EmiRecipeCategory(ResourceLocation.fromNamespaceAndPath(com.pandaismyname1.emiletsdocompat.Emi_letsdo_compat.MOD_ID, "cake_cut"),
                     EmiStack.of(net.minecraft.world.item.Items.CAKE));
             registerRecipeType(registry, manager,
                     recipeCategory,

@@ -14,7 +14,7 @@ import net.minecraft.world.item.ItemStack;
 import java.util.function.Supplier;
 
 public class PotCookingRecipe extends BasicEmiRecipe {
-    public static final ResourceLocation TEXTURE = new ResourceLocation("bakery", "textures/gui/pot_gui.png");
+    public static final ResourceLocation TEXTURE = ResourceLocation.fromNamespaceAndPath("bakery", "textures/gui/pot_gui.png");
     protected static final Supplier<RegistryAccess> REGISTRY_ACCESS =
             EnvExecutor.getEnvSpecific(() -> () -> () -> GameInstance.getClient().player.level().registryAccess(),
                     () -> () -> () -> GameInstance.getServer().registryAccess());

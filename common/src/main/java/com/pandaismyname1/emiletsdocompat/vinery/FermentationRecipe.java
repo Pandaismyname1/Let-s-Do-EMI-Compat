@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import java.util.function.Supplier;
 
 public class FermentationRecipe extends BasicEmiRecipe {
-    public static final ResourceLocation TEXTURE = new ResourceLocation("vinery", "textures/gui/fermentation_barrel_gui.png");
+    public static final ResourceLocation TEXTURE = ResourceLocation.fromNamespaceAndPath("vinery", "textures/gui/fermentation_barrel_gui.png");
     protected static final Supplier<RegistryAccess> REGISTRY_ACCESS =
             EnvExecutor.getEnvSpecific(() -> () -> () -> GameInstance.getClient().player.level().registryAccess(),
                     () -> () -> () -> GameInstance.getServer().registryAccess());

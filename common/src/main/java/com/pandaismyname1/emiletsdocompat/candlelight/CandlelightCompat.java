@@ -13,7 +13,7 @@ public class CandlelightCompat implements IEmiModCompat {
     @Override
     public void init(EmiRegistry registry, RecipeManager manager) throws NoSuchFieldException {
         try {
-            var recipeCategory = new EmiRecipeCategory(new ResourceLocation(Candlelight.MOD_ID, "pan_cooking"),
+            var recipeCategory = new EmiRecipeCategory(ResourceLocation.fromNamespaceAndPath(Candlelight.MOD_ID, "pan_cooking"),
                     EmiStack.of(ObjectRegistry.COOKING_PAN.get()));
             registerRecipeType(registry, manager,
                     recipeCategory,
@@ -26,7 +26,7 @@ public class CandlelightCompat implements IEmiModCompat {
         }
 
         try {
-            var recipeCategory = new EmiRecipeCategory(new ResourceLocation(Candlelight.MOD_ID, "pot_cooking"),
+            var recipeCategory = new EmiRecipeCategory(ResourceLocation.fromNamespaceAndPath(Candlelight.MOD_ID, "pot_cooking"),
                     EmiStack.of(ObjectRegistry.COOKING_POT.get()));
             registerRecipeType(registry, manager,
                     recipeCategory,

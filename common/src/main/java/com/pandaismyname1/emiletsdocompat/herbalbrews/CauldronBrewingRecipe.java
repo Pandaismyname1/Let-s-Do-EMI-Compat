@@ -16,7 +16,7 @@ import net.satisfy.herbalbrews.core.registry.ObjectRegistry;
 import java.util.function.Supplier;
 
 public class CauldronBrewingRecipe extends BasicEmiRecipe {
-    public static final ResourceLocation TEXTURE = new ResourceLocation("herbalbrews", "textures/gui/cauldron.png");
+    public static final ResourceLocation TEXTURE = ResourceLocation.fromNamespaceAndPath("herbalbrews", "textures/gui/cauldron.png");
     protected static final Supplier<RegistryAccess> REGISTRY_ACCESS =
             EnvExecutor.getEnvSpecific(() -> () -> () -> GameInstance.getClient().player.level().registryAccess(),
                     () -> () -> () -> GameInstance.getServer().registryAccess());

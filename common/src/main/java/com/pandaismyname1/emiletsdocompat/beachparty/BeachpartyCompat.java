@@ -16,7 +16,7 @@ public class BeachpartyCompat implements IEmiModCompat {
     public void init(EmiRegistry registry, RecipeManager manager) throws NoSuchFieldException {
 
         try {
-            var recipeCategory = new EmiRecipeCategory(new ResourceLocation(Beachparty.MOD_ID, "mini_fridge_mixing"),
+            var recipeCategory = new EmiRecipeCategory(ResourceLocation.fromNamespaceAndPath(Beachparty.MOD_ID, "mini_fridge_mixing"),
                     EmiStack.of(ObjectRegistry.MINI_FRIDGE.get()));
             registerRecipeType(registry, manager,
                     recipeCategory,
@@ -29,7 +29,7 @@ public class BeachpartyCompat implements IEmiModCompat {
         }
 
         try {
-            var recipeCategory = new EmiRecipeCategory(new ResourceLocation(Beachparty.MOD_ID, "tiki_bar_mixing"),
+            var recipeCategory = new EmiRecipeCategory(ResourceLocation.fromNamespaceAndPath(Beachparty.MOD_ID, "tiki_bar_mixing"),
                     EmiStack.of(ObjectRegistry.TIKI_BAR.get()));
             registerRecipeType(registry, manager,
                     recipeCategory,

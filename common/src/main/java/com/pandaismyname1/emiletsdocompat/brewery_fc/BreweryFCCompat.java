@@ -13,7 +13,7 @@ public class BreweryFCCompat implements IEmiModCompat {
     @Override
     public void init(EmiRegistry registry, RecipeManager manager) throws NoSuchFieldException {
         try {
-            var recipeCategory = new EmiRecipeCategory(new ResourceLocation(Brewery.MOD_ID, "brewing"),
+            var recipeCategory = new EmiRecipeCategory(ResourceLocation.fromNamespaceAndPath(Brewery.MOD_ID, "brewing"),
                     EmiStack.of(net.satisfy.brewery.core.registry.ObjectRegistry.WOODEN_BREWINGSTATION.get()));
             registerRecipeType(registry, manager,
                     recipeCategory,

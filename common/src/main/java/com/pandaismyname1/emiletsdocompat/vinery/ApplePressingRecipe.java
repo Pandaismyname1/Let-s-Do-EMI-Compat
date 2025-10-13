@@ -13,7 +13,7 @@ import net.minecraft.resources.ResourceLocation;
 import java.util.function.Supplier;
 
 public class ApplePressingRecipe extends BasicEmiRecipe {
-    public static final ResourceLocation TEXTURE = new ResourceLocation("vinery", "textures/gui/apple_press_gui.png");
+    public static final ResourceLocation TEXTURE = ResourceLocation.fromNamespaceAndPath("vinery", "textures/gui/apple_press_gui.png");
     protected static final Supplier<RegistryAccess> REGISTRY_ACCESS =
             EnvExecutor.getEnvSpecific(() -> () -> () -> GameInstance.getClient().player.level().registryAccess(),
                     () -> () -> () -> GameInstance.getServer().registryAccess());

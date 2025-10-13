@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.function.Supplier;
 
 public class TeaKettleBrewingRecipe extends BasicEmiRecipe {
-    public static final ResourceLocation TEXTURE = new ResourceLocation("herbalbrews", "textures/gui/tea_kettle.png");
+    public static final ResourceLocation TEXTURE = ResourceLocation.fromNamespaceAndPath("herbalbrews", "textures/gui/tea_kettle.png");
     private static final EmiIngredient WATER_INGREDIENT;
     private static final EmiIngredient HEAT_INGREDIENT;
     private static final EmiIngredient BOTTLE_INGREDIENT;

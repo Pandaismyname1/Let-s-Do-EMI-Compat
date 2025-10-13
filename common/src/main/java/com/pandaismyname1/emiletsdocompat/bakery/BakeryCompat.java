@@ -11,7 +11,7 @@ public class BakeryCompat implements IEmiModCompat {
 
     public void init(EmiRegistry registry, RecipeManager manager) throws NoSuchFieldException {
         try {
-            var recipeCategory = new EmiRecipeCategory(new ResourceLocation(net.satisfy.bakery.Bakery.MOD_ID, "caking"),
+            var recipeCategory = new EmiRecipeCategory(ResourceLocation.fromNamespaceAndPath(net.satisfy.bakery.Bakery.MOD_ID, "caking"),
                     EmiStack.of(net.satisfy.bakery.registry.ObjectRegistry.BAKER_STATION.get()));
             registerRecipeType(registry, manager,
                     recipeCategory,
@@ -24,7 +24,7 @@ public class BakeryCompat implements IEmiModCompat {
         }
 
         try {
-            var recipeCategory = new EmiRecipeCategory(new ResourceLocation(net.satisfy.bakery.Bakery.MOD_ID, "doughing"),
+            var recipeCategory = new EmiRecipeCategory(ResourceLocation.fromNamespaceAndPath(net.satisfy.bakery.Bakery.MOD_ID, "doughing"),
                     EmiStack.of(net.satisfy.bakery.registry.ObjectRegistry.CRAFTING_BOWL.get()));
             registerRecipeType(registry, manager,
                     recipeCategory,
@@ -37,7 +37,7 @@ public class BakeryCompat implements IEmiModCompat {
         }
 
         try {
-            var recipeCategory = new EmiRecipeCategory(new ResourceLocation(net.satisfy.bakery.Bakery.MOD_ID, "stove"),
+            var recipeCategory = new EmiRecipeCategory(ResourceLocation.fromNamespaceAndPath(net.satisfy.bakery.Bakery.MOD_ID, "stove"),
                     EmiStack.of(net.satisfy.bakery.registry.ObjectRegistry.BRICK_STOVE.get()));
             registerRecipeType(registry, manager,
                     recipeCategory,
@@ -59,7 +59,7 @@ public class BakeryCompat implements IEmiModCompat {
         }
 
         try {
-            var recipeCategory = new EmiRecipeCategory(new ResourceLocation(net.satisfy.bakery.Bakery.MOD_ID, "pot_cooking"),
+            var recipeCategory = new EmiRecipeCategory(ResourceLocation.fromNamespaceAndPath(net.satisfy.bakery.Bakery.MOD_ID, "pot_cooking"),
                     EmiStack.of(net.satisfy.bakery.registry.ObjectRegistry.SMALL_COOKING_POT.get()));
             registerRecipeType(registry, manager,
                     recipeCategory,
@@ -71,7 +71,7 @@ public class BakeryCompat implements IEmiModCompat {
         } catch (NoSuchFieldError | NoSuchFieldException | ClassNotFoundException e) {
         }
         try {
-            var recipeCategory = new EmiRecipeCategory(new ResourceLocation(com.pandaismyname1.emiletsdocompat.Emi_letsdo_compat.MOD_ID, "cake_cut"),
+            var recipeCategory = new EmiRecipeCategory(ResourceLocation.fromNamespaceAndPath(com.pandaismyname1.emiletsdocompat.Emi_letsdo_compat.MOD_ID, "cake_cut"),
                     EmiStack.of(net.minecraft.world.item.Items.CAKE));
             registerRecipeType(registry, manager,
                     recipeCategory,

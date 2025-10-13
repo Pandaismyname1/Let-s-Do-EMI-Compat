@@ -1,7 +1,7 @@
 {
   "required": true,
   "minVersion": "0.8",
-  "package": "com.pandaismyname1.emi_letsdo_compat.forge.mixin",
+  "package": "com.pandaismyname1.emi_letsdo_compat.neoforge.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
   ],

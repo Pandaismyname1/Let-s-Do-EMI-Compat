@@ -1,15 +1,18 @@
 plugins {
     id "com.github.johnrengelman.shadow" version "7.1.2"
 }
-loom {
-    forge {
-        mixinConfig "emi_letsdo_compat-common.mixins.json"
-        mixinConfig "emi_letsdo_compat.mixins.json"
-    }
-}
 architectury {
     platformSetupLoomIde()
-    forge()
+    neoForge()
+}
+loom {
+    accessWidenerPath.set(project(":common").loom.accessWidenerPath)
+    runs {
+        client {
+            property 'mixin.env.remapRefMap', 'true'
+            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
+        }
+    }
 }
 
 configurations {
@@ -33,12 +36,10 @@ dependencies {
         }
     }
 
-    forge "net.minecraftforge:forge:${rootProject.forge_version}"
+    neoForge "net.neoforged:neoforge:${neo_forge_version}"
     // Remove the next line if you don't want to depend on the API
-    modApi "dev.architectury:architectury-forge:${rootProject.architectury_version}"
+    modApi "dev.architectury:architectury-neoforge:${rootProject.architectury_version}"
 
-    common(project(path: ":common", configuration: "namedElements")) { transitive false }
-    shadowCommon(project(path: ":common", configuration: "transformProductionForge")) { transitive = false }
     modImplementation "curse.maven:lets-do-vinery-704465:5992486"
     modImplementation "curse.maven:lets-do-bakery-886559:5528402"
     modImplementation "curse.maven:lets-do-meadow-821483:6467344"
@@ -50,12 +51,16 @@ dependencies {
     modImplementation "curse.maven:lets-do-bakery-farm-charm-compat-1038130:6847992"
     modImplementation "curse.maven:lets-do-candlelight-farm-charm-compat-1038117:6850362"
     modImplementation "curse.maven:lets-do-brewery-farm-charm-compat-1038106:6195389"
+
+
+    common(project(path: ":common", configuration: "namedElements")) { transitive false }
+    shadowCommon(project(path: ":common", configuration: "transformProductionNeoForge")) { transitive = false }
 }
 
 processResources {
     inputs.property "version", project.version
 
-    filesMatching("META-INF/mods.toml") {
+    filesMatching("META-INF/neoforge.mods.toml") {
         expand "version": project.version
     }
 }

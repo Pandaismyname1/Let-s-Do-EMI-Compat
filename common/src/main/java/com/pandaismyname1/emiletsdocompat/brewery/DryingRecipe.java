@@ -14,7 +14,7 @@ import net.satisfy.brewery.recipe.SiloRecipe;
 import java.util.function.Supplier;
 
 public class DryingRecipe extends BasicEmiRecipe {
-    public static final ResourceLocation TEXTURE = new ResourceLocation("brewery", "textures/gui/silo.png");
+    public static final ResourceLocation TEXTURE = ResourceLocation.fromNamespaceAndPath("brewery", "textures/gui/silo.png");
     protected static final Supplier<RegistryAccess> REGISTRY_ACCESS =
             EnvExecutor.getEnvSpecific(() -> () -> () -> GameInstance.getClient().player.level().registryAccess(),
                     () -> () -> () -> GameInstance.getServer().registryAccess());

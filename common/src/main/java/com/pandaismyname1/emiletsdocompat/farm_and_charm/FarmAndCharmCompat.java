@@ -14,7 +14,7 @@ public class FarmAndCharmCompat implements IEmiModCompat {
     public void init(EmiRegistry registry, RecipeManager manager) throws NoSuchFieldException {
 
         try {
-            var recipeCategory = new EmiRecipeCategory(new ResourceLocation(FarmAndCharm.MOD_ID, "pot_cooking"),
+            var recipeCategory = new EmiRecipeCategory(ResourceLocation.fromNamespaceAndPath(FarmAndCharm.MOD_ID, "pot_cooking"),
                     EmiStack.of(ObjectRegistry.COOKING_POT.get()));
             registerRecipeType(registry, manager,
                     recipeCategory,
@@ -27,7 +27,7 @@ public class FarmAndCharmCompat implements IEmiModCompat {
         }
 
         try {
-            var recipeCategory = new EmiRecipeCategory(new ResourceLocation(FarmAndCharm.MOD_ID, "crafting_bowl"),
+            var recipeCategory = new EmiRecipeCategory(ResourceLocation.fromNamespaceAndPath(FarmAndCharm.MOD_ID, "crafting_bowl"),
                     EmiStack.of(ObjectRegistry.CRAFTING_BOWL.get()));
             registerRecipeType(registry, manager,
                     recipeCategory,
@@ -40,7 +40,7 @@ public class FarmAndCharmCompat implements IEmiModCompat {
         }
 
         try {
-            var recipeCategory = new EmiRecipeCategory(new ResourceLocation(FarmAndCharm.MOD_ID, "mincer"),
+            var recipeCategory = new EmiRecipeCategory(ResourceLocation.fromNamespaceAndPath(FarmAndCharm.MOD_ID, "mincer"),
                     EmiStack.of(ObjectRegistry.MINCER.get()));
             registerRecipeType(registry, manager,
                     recipeCategory,
@@ -53,7 +53,7 @@ public class FarmAndCharmCompat implements IEmiModCompat {
         }
 
         try {
-            var recipeCategory = new EmiRecipeCategory(new ResourceLocation(FarmAndCharm.MOD_ID, "roaster"),
+            var recipeCategory = new EmiRecipeCategory(ResourceLocation.fromNamespaceAndPath(FarmAndCharm.MOD_ID, "roaster"),
                     EmiStack.of(ObjectRegistry.ROASTER.get()));
             registerRecipeType(registry, manager,
                     recipeCategory,
@@ -66,7 +66,7 @@ public class FarmAndCharmCompat implements IEmiModCompat {
         }
 
         try {
-            var recipeCategory = new EmiRecipeCategory(new ResourceLocation(FarmAndCharm.MOD_ID, "drying"),
+            var recipeCategory = new EmiRecipeCategory(ResourceLocation.fromNamespaceAndPath(FarmAndCharm.MOD_ID, "drying"),
                     EmiStack.of(ObjectRegistry.SILO_WOOD.get()));
             registerRecipeType(registry, manager,
                     recipeCategory,
@@ -80,7 +80,7 @@ public class FarmAndCharmCompat implements IEmiModCompat {
         }
 
         try {
-            var recipeCategory = new EmiRecipeCategory(new ResourceLocation(FarmAndCharm.MOD_ID, "stove"),
+            var recipeCategory = new EmiRecipeCategory(ResourceLocation.fromNamespaceAndPath(FarmAndCharm.MOD_ID, "stove"),
                     EmiStack.of(ObjectRegistry.STOVE.get()));
             registerRecipeType(registry, manager,
                     recipeCategory,

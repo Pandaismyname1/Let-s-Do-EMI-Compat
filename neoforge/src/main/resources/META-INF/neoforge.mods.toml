@@ -1,0 +1,25 @@
+modLoader = "javafml"
+loaderVersion = "[4,)"
+license = "MIT"
+issueTrackerURL = "https://github.emi-letsdo-compatom/pandaismyname1/originvisuals/issues"
+[[mods]]
+modId = "emi_letsdo_compat"
+version = "${version}"
+displayName = "emi-letsdo-compat"
+logoFile = "icon.png" #optional
+description = '''
+
+'''
+[[dependencies.emi_letsdo_compat]] #optional
+modId = "neoforge"
+mandatory = true
+versionRange = "[21.0,)"
+ordering = "NONE"
+side = "BOTH"
+# Here's another dependency
+[[dependencies.emi_letsdo_compat]]
+modId = "minecraft"
+mandatory = true
+versionRange = "[1.21,)"
+ordering = "NONE"
+side = "BOTH"

@@ -18,7 +18,7 @@ import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.NotNull;
 
 public class CakeCutRecipe implements Recipe<Container> {
-    private static final TagKey<Item> KNIFE_TAG = TagKey.create(Registries.ITEM, new ResourceLocation("bakery", "knives"));
+    private static final TagKey<Item> KNIFE_TAG = TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath("bakery", "knives"));
     private final ResourceLocation id;
     private final Ingredient ingredient;
     private final ItemStack result;

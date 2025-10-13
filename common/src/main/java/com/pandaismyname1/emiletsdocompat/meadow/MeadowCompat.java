@@ -17,7 +17,7 @@ public class MeadowCompat implements IEmiModCompat {
     @Override
     public void init(EmiRegistry registry, RecipeManager manager) throws NoSuchFieldException {
         try {
-            var recipeCategory = new EmiRecipeCategory(new ResourceLocation(Emi_letsdo_compat.MOD_ID, "fondue_fill"),
+            var recipeCategory = new EmiRecipeCategory(ResourceLocation.fromNamespaceAndPath(Emi_letsdo_compat.MOD_ID, "fondue_fill"),
                     EmiStack.of(ObjectRegistry.FONDUE.get()));
             registerRecipeType(registry, manager,
                     recipeCategory,
@@ -30,7 +30,7 @@ public class MeadowCompat implements IEmiModCompat {
         }
 
         try {
-            var recipeCategory = new EmiRecipeCategory(new ResourceLocation(Emi_letsdo_compat.MOD_ID, "fondue_use"),
+            var recipeCategory = new EmiRecipeCategory(ResourceLocation.fromNamespaceAndPath(Emi_letsdo_compat.MOD_ID, "fondue_use"),
                     EmiStack.of(ObjectRegistry.FONDUE.get()));
             registerRecipeType(registry, manager,
                     recipeCategory,
@@ -43,7 +43,7 @@ public class MeadowCompat implements IEmiModCompat {
         }
 
         try {
-            var recipeCategory = new EmiRecipeCategory(new ResourceLocation(Meadow.MOD_ID, "cheese"),
+            var recipeCategory = new EmiRecipeCategory(ResourceLocation.fromNamespaceAndPath(Meadow.MOD_ID, "cheese"),
                     EmiStack.of(ObjectRegistry.CHEESE_FORM.get()));
             registerRecipeType(registry, manager,
                     recipeCategory,
@@ -56,7 +56,7 @@ public class MeadowCompat implements IEmiModCompat {
         }
 
         try {
-            var recipeCategory = new EmiRecipeCategory(new ResourceLocation(Meadow.MOD_ID, "cooking"),
+            var recipeCategory = new EmiRecipeCategory(ResourceLocation.fromNamespaceAndPath(Meadow.MOD_ID, "cooking"),
                     EmiStack.of(ObjectRegistry.COOKING_CAULDRON.get()));
             registerRecipeType(registry, manager,
                     recipeCategory,
@@ -69,7 +69,7 @@ public class MeadowCompat implements IEmiModCompat {
         }
 
         try {
-            var recipeCategory = new EmiRecipeCategory(new ResourceLocation(Meadow.MOD_ID, "woodcutting"),
+            var recipeCategory = new EmiRecipeCategory(ResourceLocation.fromNamespaceAndPath(Meadow.MOD_ID, "woodcutting"),
                     EmiStack.of(ObjectRegistry.WOODCUTTER.get()));
             registerRecipeType(registry, manager,
                     recipeCategory,

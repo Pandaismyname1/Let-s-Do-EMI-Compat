@@ -13,7 +13,7 @@ import net.minecraft.resources.ResourceLocation;
 import java.util.function.Supplier;
 
 public class CraftingBowlRecipe extends BasicEmiRecipe {
-    public static final ResourceLocation TEXTURE = new ResourceLocation("farm_and_charm", "textures/gui/crafting_bowl.png");
+    public static final ResourceLocation TEXTURE = ResourceLocation.fromNamespaceAndPath("farm_and_charm", "textures/gui/crafting_bowl.png");
     protected static final Supplier<RegistryAccess> REGISTRY_ACCESS =
             EnvExecutor.getEnvSpecific(() -> () -> () -> GameInstance.getClient().player.level().registryAccess(),
                     () -> () -> () -> GameInstance.getServer().registryAccess());

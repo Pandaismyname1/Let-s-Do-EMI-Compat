@@ -19,7 +19,7 @@ import java.util.function.Supplier;
 
 
 public class CustomGrapeMashingRecipe extends BasicEmiRecipe {
-    public static final ResourceLocation TOAST_TEXTURE = new ResourceLocation("minecraft", "textures/gui/toasts.png");
+    public static final ResourceLocation TOAST_TEXTURE = ResourceLocation.fromNamespaceAndPath("minecraft", "textures/gui/toasts.png");
     protected static final Supplier<RegistryAccess> REGISTRY_ACCESS =
             EnvExecutor.getEnvSpecific(() -> () -> () -> GameInstance.getClient().player.level().registryAccess(),
                     () -> () -> () -> GameInstance.getServer().registryAccess());
