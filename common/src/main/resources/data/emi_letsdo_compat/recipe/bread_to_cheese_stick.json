@@ -4,7 +4,7 @@
     "item": "minecraft:bread"
   },
   "result": {
-    "item": "meadow:cheese_stick",
+    "id": "meadow:cheese_stick",
     "count": 1
   },
   "cheeseCost": 0.33

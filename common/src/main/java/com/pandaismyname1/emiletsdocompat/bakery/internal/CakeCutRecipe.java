@@ -77,7 +77,7 @@ public class CakeCutRecipe implements Recipe<RecipeInput> {
         public @NotNull MapCodec<CakeCutRecipe> codec() {
             return RecordCodecBuilder.mapCodec(inst -> inst.group(
                     Ingredient.CODEC.fieldOf("ingredient").forGetter(CakeCutRecipe::getInput),
-                    ItemStack.CODEC.fieldOf("output").forGetter(CakeCutRecipe::getOutput)
+                    ItemStack.CODEC.fieldOf("result").forGetter(CakeCutRecipe::getOutput)
             ).apply(inst, CakeCutRecipe::new));
         }
 

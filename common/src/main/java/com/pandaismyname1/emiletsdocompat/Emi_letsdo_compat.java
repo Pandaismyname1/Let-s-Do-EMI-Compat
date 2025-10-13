@@ -27,6 +27,13 @@ public class Emi_letsdo_compat {
         } catch (ClassNotFoundException | NoSuchFieldError e) {
             // Bakery not found
         }
+
+        try {
+            Class.forName("net.satisfy.vinery.Vinery");
+            com.pandaismyname1.emiletsdocompat.vinery.internal.Registry.init();
+        } catch (ClassNotFoundException | NoSuchFieldError e) {
+            // Bakery not found
+        }
     }
 }
 

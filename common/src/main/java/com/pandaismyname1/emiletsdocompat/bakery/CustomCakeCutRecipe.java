@@ -15,7 +15,7 @@ import net.minecraft.resources.ResourceLocation;
 import java.util.function.Supplier;
 
 public class CustomCakeCutRecipe extends BasicEmiRecipe {
-    public static final ResourceLocation TOAST_TEXTURE = ResourceLocation.fromNamespaceAndPath("minecraft", "textures/gui/toasts.png");
+    public static final ResourceLocation TOAST_TEXTURE = ResourceLocation.fromNamespaceAndPath("minecraft", "textures/gui/sprites/toast/right_click.png");
     protected static final Supplier<RegistryAccess> REGISTRY_ACCESS =
             EnvExecutor.getEnvSpecific(() -> () -> () -> GameInstance.getClient().player.level().registryAccess(),
                     () -> () -> () -> GameInstance.getServer().registryAccess());
@@ -29,7 +29,7 @@ public class CustomCakeCutRecipe extends BasicEmiRecipe {
     @Override
     public void addWidgets(WidgetHolder widgets) {
         widgets.addSlot(this.inputs.get(0), 5, 5);
-        widgets.addTexture(TOAST_TEXTURE, 25, 3, 20, 20, 236, 20);
+        widgets.addTexture(TOAST_TEXTURE, 25, 3, 20, 20,0, 0, 20, 20, 20, 20);
         widgets.addSlot(this.inputs.get(1), 45, 5);
         widgets.addFillingArrow(65, 5, 5000);
         widgets.addSlot(this.outputs.get(0), 95, 5);

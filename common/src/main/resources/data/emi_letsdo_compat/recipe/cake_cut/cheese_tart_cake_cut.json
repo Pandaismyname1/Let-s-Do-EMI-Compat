@@ -1,0 +1,10 @@
+{
+  "type": "emi_letsdo_compat:cake_cut",
+  "ingredient": {
+    "item": "meadow:cheese_tart"
+  },
+  "result": {
+    "id": "meadow:cheese_tart_slice",
+    "count": 4
+  }
+}

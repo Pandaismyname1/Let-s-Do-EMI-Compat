@@ -31,19 +31,19 @@ public class LetsDoEmiPlugin implements EmiPlugin {
         }
 
         try {
-            Class.forName("satisfy.beachparty.Beachparty");
+            Class.forName("net.satisfy.beachparty.Beachparty");
             new com.pandaismyname1.emiletsdocompat.beachparty.BeachpartyCompat().init(registry, manager);
         } catch (ClassNotFoundException | NoSuchFieldException | NoSuchFieldError e) {
             // Beachparty not found
         }
 
-        try {
-            Class.forName("net.satisfy.brewery.Brewery");
-            Class.forName("net.satisfy.brewery.recipe.BrewingRecipe");
-            new com.pandaismyname1.emiletsdocompat.brewery.BreweryCompat().init(registry, manager);
-        } catch (ClassNotFoundException | NoSuchFieldException | NoSuchFieldError e) {
-            // Brewery not found
-        }
+//        try {
+//            Class.forName("net.satisfy.brewery.Brewery");
+//            Class.forName("net.satisfy.brewery.recipe.BrewingRecipe");
+//            new com.pandaismyname1.emiletsdocompat.brewery.BreweryCompat().init(registry, manager);
+//        } catch (ClassNotFoundException | NoSuchFieldException | NoSuchFieldError e) {
+//            // Brewery not found
+//        }
 
         try {
             Class.forName("net.satisfy.brewery.Brewery");
@@ -53,13 +53,13 @@ public class LetsDoEmiPlugin implements EmiPlugin {
             // Brewery not found
         }
 
-        try {
-            Class.forName("net.satisfy.candlelight.Candlelight");
-            Class.forName("net.satisfy.candlelight.recipe.CookingPanRecipe");
-            new com.pandaismyname1.emiletsdocompat.candlelight.CandlelightCompat().init(registry, manager);
-        } catch (ClassNotFoundException | NoSuchFieldException | NoSuchFieldError e) {
-            // Candlelight not found
-        }
+//        try {
+//            Class.forName("net.satisfy.candlelight.Candlelight");
+//            Class.forName("net.satisfy.candlelight.recipe.CookingPanRecipe");
+//            new com.pandaismyname1.emiletsdocompat.candlelight.CandlelightCompat().init(registry, manager);
+//        } catch (ClassNotFoundException | NoSuchFieldException | NoSuchFieldError e) {
+//            // Candlelight not found
+//        }
 
         try {
             Class.forName("net.satisfy.farm_and_charm.FarmAndCharm");
@@ -83,12 +83,12 @@ public class LetsDoEmiPlugin implements EmiPlugin {
             // Meadow not found
         }
 
-        try {
-            Class.forName("net.satisfy.vinery.core.Vinery");
-            new com.pandaismyname1.emiletsdocompat.vinery.VineryCompat().init(registry, manager);
-        } catch (ClassNotFoundException | NoSuchFieldException | NoSuchFieldError e) {
-            // Vinery not found
-        }
+//        try {
+//            Class.forName("net.satisfy.vinery.core.Vinery");
+//            new com.pandaismyname1.emiletsdocompat.vinery.VineryCompat().init(registry, manager);
+//        } catch (ClassNotFoundException | NoSuchFieldException | NoSuchFieldError e) {
+//            // Vinery not found
+//        }
 
     }
 }

@@ -1,10 +1,10 @@
 {
   "type": "emi_letsdo_compat:cake_cut",
   "ingredient": {
-    "item": "bakery:strawberry_cake"
+    "item": "bakery:chocolate_gateau"
   },
   "result": {
-    "item": "bakery:strawberry_cake_slice",
+    "id": "bakery:chocolate_gateau_slice",
     "count": 4
   }
 }

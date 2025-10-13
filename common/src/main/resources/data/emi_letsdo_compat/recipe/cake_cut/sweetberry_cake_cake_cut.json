@@ -4,7 +4,7 @@
     "item": "bakery:sweetberry_cake"
   },
   "result": {
-    "item": "bakery:sweetberry_cake_slice",
+    "id": "bakery:sweetberry_cake_slice",
     "count": 4
   }
 }

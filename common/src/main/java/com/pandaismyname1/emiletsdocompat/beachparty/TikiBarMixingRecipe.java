@@ -9,7 +9,8 @@ import dev.emi.emi.api.stack.EmiIngredient;
 import dev.emi.emi.api.stack.EmiStack;
 import dev.emi.emi.api.widget.WidgetHolder;
 import net.minecraft.core.RegistryAccess;
-import satisfy.beachparty.client.gui.TikiBarGui;
+import net.satisfy.beachparty.client.gui.PalmBarGui;
+import net.satisfy.beachparty.core.recipe.PalmBarRecipe;
 
 import java.util.function.Supplier;
 
@@ -18,7 +19,7 @@ public class TikiBarMixingRecipe extends BasicEmiRecipe {
             EnvExecutor.getEnvSpecific(() -> () -> () -> GameInstance.getClient().player.level().registryAccess(),
                     () -> () -> () -> GameInstance.getServer().registryAccess());
 
-    public TikiBarMixingRecipe(EmiRecipeCategory category, satisfy.beachparty.recipe.TikiBarRecipe recipe) {
+    public TikiBarMixingRecipe(EmiRecipeCategory category, PalmBarRecipe recipe) {
         super(category, MockRecipeIdGenerator.generateRecipeId(), 70, 18);
         var ingredients = recipe.getIngredients();
         for (var ingredient : ingredients) {
@@ -29,9 +30,9 @@ public class TikiBarMixingRecipe extends BasicEmiRecipe {
 
     @Override
     public void addWidgets(WidgetHolder widgets) {
-        widgets.addTexture(TikiBarGui.BG, -1, -1, 124, 60, 26, 13);
-        widgets.addAnimatedTexture(TikiBarGui.BG, 67, 31, 22, 10, 177, 26, 5000, true, false, false);
-        widgets.addAnimatedTexture(TikiBarGui.BG, 69, 8, 15, 20, 179, 2, 5000, false, true, false);
+        widgets.addTexture(PalmBarGui.BG, -1, -1, 124, 60, 26, 13);
+        widgets.addAnimatedTexture(PalmBarGui.BG, 67, 31, 22, 10, 177, 26, 5000, true, false, false);
+        widgets.addAnimatedTexture(PalmBarGui.BG, 69, 8, 15, 20, 179, 2, 5000, false, true, false);
 
         if (!this.inputs.isEmpty()) {
             var s = widgets.addSlot(this.inputs.get(0), 27, 11);

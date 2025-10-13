@@ -6,9 +6,11 @@ import dev.emi.emi.api.recipe.EmiRecipeCategory;
 import dev.emi.emi.api.stack.EmiStack;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.crafting.RecipeManager;
-import satisfy.beachparty.Beachparty;
-import satisfy.beachparty.registry.ObjectRegistry;
-import satisfy.beachparty.registry.RecipeRegistry;
+import net.satisfy.beachparty.Beachparty;
+import net.satisfy.beachparty.core.recipe.MiniFridgeRecipe;
+import net.satisfy.beachparty.core.recipe.PalmBarRecipe;
+import net.satisfy.beachparty.core.registry.ObjectRegistry;
+import net.satisfy.beachparty.core.registry.RecipeTypeRegistry;
 
 public class BeachpartyCompat implements IEmiModCompat {
 
@@ -21,23 +23,23 @@ public class BeachpartyCompat implements IEmiModCompat {
             registerRecipeType(registry, manager,
                     recipeCategory,
                     (recipe) -> {
-                        registry.addRecipe(new MiniFridgeMixingRecipe(recipeCategory, (satisfy.beachparty.recipe.MiniFridgeRecipe) recipe));
+                        registry.addRecipe(new MiniFridgeMixingRecipe(recipeCategory, (MiniFridgeRecipe) recipe));
                     },
-                    RecipeRegistry.MINI_FRIDGE_RECIPE_TYPE.get(),
+                    RecipeTypeRegistry.MINI_FRIDGE_RECIPE_TYPE.get(),
                     EmiStack.of(ObjectRegistry.MINI_FRIDGE.get()));
         } catch (NoSuchFieldError | NoSuchFieldException | ClassNotFoundException e) {
         }
 
         try {
             var recipeCategory = new EmiRecipeCategory(ResourceLocation.fromNamespaceAndPath(Beachparty.MOD_ID, "tiki_bar_mixing"),
-                    EmiStack.of(ObjectRegistry.TIKI_BAR.get()));
+                    EmiStack.of(ObjectRegistry.PALM_BAR.get()));
             registerRecipeType(registry, manager,
                     recipeCategory,
                     (recipe) -> {
-                        registry.addRecipe(new TikiBarMixingRecipe(recipeCategory, (satisfy.beachparty.recipe.TikiBarRecipe) recipe));
+                        registry.addRecipe(new TikiBarMixingRecipe(recipeCategory, (PalmBarRecipe) recipe));
                     },
-                    RecipeRegistry.TIKI_BAR_RECIPE_TYPE.get(),
-                    EmiStack.of(ObjectRegistry.TIKI_BAR.get()));
+                    RecipeTypeRegistry.PALM_BAR_RECIPE_TYPE.get(),
+                    EmiStack.of(ObjectRegistry.PALM_BAR.get()));
         } catch (NoSuchFieldError | NoSuchFieldException | ClassNotFoundException e) {
         }
     }

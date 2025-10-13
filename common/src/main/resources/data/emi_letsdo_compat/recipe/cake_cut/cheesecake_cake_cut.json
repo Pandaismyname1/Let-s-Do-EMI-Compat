@@ -1,10 +1,10 @@
 {
   "type": "emi_letsdo_compat:cake_cut",
   "ingredient": {
-    "item": "bakery:bundt_cake"
+    "item": "meadow:cheesecake"
   },
   "result": {
-    "item": "bakery:bundt_cake_slice",
+    "id": "meadow:cheesecake_slice",
     "count": 4
   }
 }

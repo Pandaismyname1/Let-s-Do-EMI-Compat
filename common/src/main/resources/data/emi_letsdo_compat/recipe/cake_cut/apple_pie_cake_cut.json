@@ -4,7 +4,7 @@
     "item": "bakery:apple_pie"
   },
   "result": {
-    "item": "bakery:apple_pie_slice",
+    "id": "bakery:apple_pie_slice",
     "count": 4
   }
 }

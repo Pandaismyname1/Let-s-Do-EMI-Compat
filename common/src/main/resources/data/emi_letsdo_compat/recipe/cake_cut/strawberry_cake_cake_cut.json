@@ -1,0 +1,10 @@
+{
+  "type": "emi_letsdo_compat:cake_cut",
+  "ingredient": {
+    "item": "bakery:strawberry_cake"
+  },
+  "result": {
+    "id": "bakery:strawberry_cake_slice",
+    "count": 4
+  }
+}
