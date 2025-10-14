@@ -8,6 +8,8 @@ pluginManagement {
     }
 }
 
+rootProject.name = 'emi_letsdo_compat'
+
 include("common")
 include("fabric")
 include("neoforge")

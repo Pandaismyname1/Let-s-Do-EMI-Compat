@@ -1,7 +1,7 @@
 modLoader = "javafml"
-loaderVersion = "[4,)"
+loaderVersion = "[2,)"
 license = "MIT"
-issueTrackerURL = "https://github.emi-letsdo-compatom/pandaismyname1/originvisuals/issues"
+issueTrackerURL = "https://github.com/Pandaismyname1/Let-s-Do-EMI-Compat"
 [[mods]]
 modId = "emi_letsdo_compat"
 version = "${version}"
