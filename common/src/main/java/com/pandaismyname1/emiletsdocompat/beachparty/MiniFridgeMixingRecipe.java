@@ -8,7 +8,7 @@ import dev.emi.emi.api.stack.EmiIngredient;
 import dev.emi.emi.api.stack.EmiStack;
 import dev.emi.emi.api.widget.WidgetHolder;
 import net.minecraft.core.RegistryAccess;
-import satisfy.beachparty.client.gui.MiniFridgeGui;
+import net.satisfy.beachparty.client.gui.MiniFridgeGui;
 
 import java.util.function.Supplier;
 
@@ -17,7 +17,7 @@ public class MiniFridgeMixingRecipe extends BasicEmiRecipe {
             EnvExecutor.getEnvSpecific(() -> () -> () -> GameInstance.getClient().player.level().registryAccess(),
                     () -> () -> () -> GameInstance.getServer().registryAccess());
 
-    public MiniFridgeMixingRecipe(EmiRecipeCategory category, satisfy.beachparty.recipe.MiniFridgeRecipe recipe) {
+    public MiniFridgeMixingRecipe(EmiRecipeCategory category, net.satisfy.beachparty.core.recipe.MiniFridgeRecipe recipe) {
         super(category, recipe.getId(), 70, 18);
         var ingredients = recipe.getIngredients();
         for (var ingredient : ingredients) {
