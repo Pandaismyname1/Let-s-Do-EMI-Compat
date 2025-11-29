@@ -41,7 +41,7 @@ dependencies {
     // Remove the next line if you don't want to depend on the API
     modApi "dev.architectury:architectury-neoforge:${rootProject.architectury_version}"
 
-//    modImplementation "curse.maven:lets-do-vinery-704465:5992486"
+    modImplementation "curse.maven:lets-do-vinery-704465:7218579"
 //    modImplementation "curse.maven:lets-do-bakery-886559:5528402"
     modImplementation "curse.maven:lets-do-meadow-821483:7069148"
 //    modImplementation "curse.maven:lets-do-candlelight-846962:5427646"

@@ -44,7 +44,7 @@ dependencies {
 
     common(project(path: ':common', configuration: 'namedElements')) { transitive false }
     shadowBundle project(path: ':common', configuration: 'transformProductionFabric')
-//    modImplementation "curse.maven:lets-do-vinery-704465:5992485"
+    modImplementation "curse.maven:lets-do-vinery-704465:7218656"
 //    modImplementation "curse.maven:lets-do-bakery-886559:5528401"
     modImplementation "curse.maven:lets-do-meadow-821483:7064941"
 //    modImplementation "curse.maven:lets-do-candlelight-846962:5427654"

@@ -20,7 +20,7 @@ dependencies {
 
     modCompileOnly "dev.emi:emi-xplat-intermediary:${rootProject.emi_version}+${rootProject.minecraft_version}:api"
     // Fabric
-//    modImplementation "curse.maven:lets-do-vinery-704465:5992485"
+    modImplementation "curse.maven:lets-do-vinery-704465:7218656"
 //    modImplementation "curse.maven:lets-do-bakery-886559:5528401"
     modImplementation "curse.maven:lets-do-meadow-821483:7064941"
 //    modImplementation "curse.maven:lets-do-candlelight-846962:5427654"
@@ -34,7 +34,7 @@ dependencies {
 
 
     // Forge
-//    modImplementation "curse.maven:lets-do-vinery-704465:5992486"
+    modImplementation "curse.maven:lets-do-vinery-704465:7218579"
 //    modImplementation "curse.maven:lets-do-bakery-886559:5528402"
     modImplementation "curse.maven:lets-do-meadow-821483:7069148"
 //    modImplementation "curse.maven:lets-do-candlelight-846962:5427646"
