@@ -31,7 +31,7 @@ public class LetsDoEmiPlugin implements EmiPlugin {
         }
 
         try {
-            Class.forName("satisfy.beachparty.Beachparty");
+            Class.forName("net.satisfy.beachparty.Beachparty");
             new com.pandaismyname1.emiletsdocompat.beachparty.BeachpartyCompat().init(registry, manager);
         } catch (ClassNotFoundException | NoSuchFieldException | NoSuchFieldError e) {
             // Beachparty not found

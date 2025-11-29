@@ -28,33 +28,42 @@ public class TikiBarMixingRecipe extends BasicEmiRecipe {
 
     @Override
     public void addWidgets(WidgetHolder widgets) {
-        widgets.addTexture(PalmBarGui.BG, -1, -1, 124, 60, 26, 13);
-        widgets.addAnimatedTexture(PalmBarGui.BG, 67, 31, 22, 10, 177, 26, 5000, true, false, false);
-        widgets.addAnimatedTexture(PalmBarGui.BG, 69, 8, 15, 20, 179, 2, 5000, false, true, false);
+        widgets.addTexture(PalmBarGui.BG, 0, 0, 106, 42, 34, 21);
+        widgets.addAnimatedTexture(PalmBarGui.BG, 45, 13, 24, 17, 176, 14, 5000, true, false, false);
 
         if (!this.inputs.isEmpty()) {
-            var s = widgets.addSlot(this.inputs.get(0), 27, 11);
+            var s = widgets.addSlot(this.inputs.get(0), 3, 3);
             s.drawBack(false);
         }
 
         if (this.inputs.size() > 1) {
-            var s = widgets.addSlot(this.inputs.get(1), 27, 29);
+            var s = widgets.addSlot(this.inputs.get(1), 21, 3);
+            s.drawBack(false);
+        }
+
+        if (this.inputs.size() > 2) {
+            var s = widgets.addSlot(this.inputs.get(2), 3, 21);
+            s.drawBack(false);
+        }
+
+        if (this.inputs.size() > 3) {
+            var s = widgets.addSlot(this.inputs.get(3), 21, 21);
             s.drawBack(false);
         }
 
         if (!this.outputs.isEmpty()) {
-            var s = widgets.addSlot(this.outputs.get(0), 100, 20);
+            var s = widgets.addSlot(this.outputs.get(0), 81, 13);
             s.drawBack(false);
         }
     }
 
     @Override
     public int getDisplayHeight() {
-        return 60;
+        return 42;
     }
 
     @Override
     public int getDisplayWidth() {
-        return 124;
+        return 106;
     }
 }
