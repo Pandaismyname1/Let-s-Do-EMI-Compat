@@ -83,12 +83,12 @@ public class LetsDoEmiPlugin implements EmiPlugin {
             // Meadow not found
         }
 
-//        try {
-//            Class.forName("net.satisfy.vinery.core.Vinery");
-//            new com.pandaismyname1.emiletsdocompat.vinery.VineryCompat().init(registry, manager);
-//        } catch (ClassNotFoundException | NoSuchFieldException | NoSuchFieldError e) {
-//            // Vinery not found
-//        }
+        try {
+            Class.forName("net.satisfy.vinery.core.Vinery");
+            new com.pandaismyname1.emiletsdocompat.vinery.VineryCompat().init(registry, manager);
+        } catch (ClassNotFoundException | NoSuchFieldException | NoSuchFieldError e) {
+            // Vinery not found
+        }
 
     }
 }
