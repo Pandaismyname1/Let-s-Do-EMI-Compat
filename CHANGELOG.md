@@ -1,3 +1,8 @@
+## [Let's Do Addon] Emi Compat 1.8.2
+### Changelog:
+- Barrel Fermentation recipes now show the required Grapejuice in the barrel's juice slot, instead of only naming it in the fluid bar tooltip
+- Grapejuice items now list their Barrel Fermentation recipes under "Uses"
+
 ## [Let's Do Addon] Emi Compat 1.8
 ### Changelog:
 - Fixed mod not loading on Fabric on certain cases
