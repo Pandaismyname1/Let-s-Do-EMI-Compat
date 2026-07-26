@@ -1,8 +1,14 @@
 pluginManagement {
     repositories {
+        // Central first: maven.neoforged.net serves a POM for kotlin-metadata-jvm but no jar, and
+        // Gradle will not fall through to another repository once it has taken metadata from one.
+        mavenCentral()
+
         maven { url "https://maven.fabricmc.net/" }
         maven { url "https://maven.architectury.dev/" }
         maven { url "https://maven.neoforged.net" }
+        // Loom pulls installertools, DiffPatch and mcinjector from here.
+        maven { url "https://maven.minecraftforge.net/" }
 
         gradlePluginPortal()
     }
